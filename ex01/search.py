@@ -12,6 +12,8 @@ by Pacman agents (in searchAgents.py).
 """
 
 import util
+from util import Stack
+import pdb
 
 class SearchProblem:
     """
@@ -81,8 +83,30 @@ def depthFirstSearch(problem):
     print("Is the start a goal?", problem.isGoalState(problem.getStartState()))
     print("Start's successors:", problem.getSuccessors(problem.getStartState()))
     """
-    "*** YOUR CODE HERE ***"
-    util.raiseNotDefined()
+    
+    # Start with start state in fringe, and no visited nodes.
+    # Every item in the fringe is a tuple of <position, path>
+    fringe = Stack()
+    fringe.push( (problem.getStartState(), [] ) )
+    visited = set()
+    
+    while not fringe.isEmpty():
+        
+        current = fringe.pop()
+
+        if current[0] in visited:
+            continue
+        
+        visited.add(current[0])
+        
+        if problem.isGoalState(current[0]):
+            # Reached goal
+            return current[1]
+
+        # Add all current's children to fringe
+        for succ in problem.getSuccessors(current[0]):
+            fringe.push((succ[0], current[1] + [succ[1]]))
+                        
 
 def breadthFirstSearch(problem):
     "Search the shallowest nodes in the search tree first. [p 81]"
