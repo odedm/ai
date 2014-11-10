@@ -12,7 +12,7 @@ by Pacman agents (in searchAgents.py).
 """
 
 import util
-from util import Stack
+from util import Stack, Queue, PriorityQueueWithFunction
 import pdb
 
 class SearchProblem:
@@ -58,7 +58,6 @@ class SearchProblem:
         """
         util.raiseNotDefined()
 
-
 def tinyMazeSearch(problem):
     """
     Returns a sequence of moves that solves tinyMaze.  For any other
@@ -69,6 +68,42 @@ def tinyMazeSearch(problem):
     w = Directions.WEST
     return  [s,s,w,s,w,w,s,w]
 
+
+class fringeState(object):
+    """ Every item in the fringe is a pair of position & path """
+    def __init__(self, state, actions):
+        self.state = state
+        self.actions = actions
+    
+def getCostFunc(problem):
+    """ Returns a cost function for the given problem """
+    def getCost(fstate):
+        return problem.getCostOfActions(fstate.actions)
+    return getCost
+    
+def getActions(problem, fringe):
+    """ Returns the list of actions to reach the goal,
+    Based on a given fringe, Fringe has to implement push, pop, isEmpty """
+    # Start with start state in fringe, and no visited nodes.    
+    fringe.push( fringeState(problem.getStartState(), []) )
+    visited = set()
+    
+    while not fringe.isEmpty():
+        current = fringe.pop()
+
+        if current.state in visited:
+            continue
+        
+        visited.add(current.state)
+        
+        if problem.isGoalState(current.state):
+            # Reached goal
+            return current.actions
+
+        # Add all current's children to fringe
+        for succ in problem.getSuccessors(current.state):
+            fringe.push( fringeState(succ[0], current.actions + [succ[1]]) )
+                        
 def depthFirstSearch(problem):
     """
     Search the deepest nodes in the search tree first [p 85].
@@ -82,41 +117,20 @@ def depthFirstSearch(problem):
     print("Start:", problem.getStartState())
     print("Is the start a goal?", problem.isGoalState(problem.getStartState()))
     print("Start's successors:", problem.getSuccessors(problem.getStartState()))
-    """
-    
-    # Start with start state in fringe, and no visited nodes.
-    # Every item in the fringe is a tuple of <position, path>
+    """    
     fringe = Stack()
-    fringe.push( (problem.getStartState(), [] ) )
-    visited = set()
-    
-    while not fringe.isEmpty():
-        
-        current = fringe.pop()
+    return getActions(problem, fringe)
 
-        if current[0] in visited:
-            continue
-        
-        visited.add(current[0])
-        
-        if problem.isGoalState(current[0]):
-            # Reached goal
-            return current[1]
-
-        # Add all current's children to fringe
-        for succ in problem.getSuccessors(current[0]):
-            fringe.push((succ[0], current[1] + [succ[1]]))
-                        
 
 def breadthFirstSearch(problem):
-    "Search the shallowest nodes in the search tree first. [p 81]"
-    "*** YOUR CODE HERE ***"
-    util.raiseNotDefined()
+    """ Search the shallowest nodes in the search tree first. [p 81] """
+    fringe = Queue()
+    return getActions(problem, fringe)
 
 def uniformCostSearch(problem):
-    "Search the node of least total cost first. "
-    "*** YOUR CODE HERE ***"
-    util.raiseNotDefined()
+    """ Search the node of least total cost first. """
+    fringe = PriorityQueueWithFunction(getCostFunc(problem))
+    return getActions(problem, fringe)
 
 def nullHeuristic(state, problem=None):
     """
