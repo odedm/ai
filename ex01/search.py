@@ -75,11 +75,9 @@ class fringeState(object):
         self.state = state
         self.actions = actions
     
-def getCostFunc(problem):
-    """ Returns a cost function for the given problem """
-    def getCost(fstate):
-        return problem.getCostOfActions(fstate.actions)
-    return getCost
+
+
+
     
 def getActions(problem, fringe):
     """ Returns the list of actions to reach the goal,
@@ -121,7 +119,6 @@ def depthFirstSearch(problem):
     fringe = Stack()
     return getActions(problem, fringe)
 
-
 def breadthFirstSearch(problem):
     """ Search the shallowest nodes in the search tree first. [p 81] """
     fringe = Queue()
@@ -139,11 +136,16 @@ def nullHeuristic(state, problem=None):
     """
     return 0
 
+def getCostFunc(problem, heuristic=nullHeuristic):
+    """ Returns a cost function for the given problem """
+    def getCost(fstate):
+        return problem.getCostOfActions(fstate.actions) + heuristic(fstate.state, problem)
+    return getCost
+    
 def aStarSearch(problem, heuristic=nullHeuristic):
     "Search the node that has the lowest combined cost and heuristic first."
-    "*** YOUR CODE HERE ***"
-    util.raiseNotDefined()
-
+    fringe = PriorityQueueWithFunction(getCostFunc(problem, heuristic))
+    return getActions(problem, fringe)
 
 # Abbreviations
 bfs = breadthFirstSearch
