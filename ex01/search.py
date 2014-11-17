@@ -13,7 +13,6 @@ by Pacman agents (in searchAgents.py).
 
 import util
 from util import Stack, Queue, PriorityQueueWithFunction
-import pdb
 
 class SearchProblem:
     """
@@ -73,22 +72,19 @@ class fringeState(object):
     """ Every item in the fringe is a pair of position & path """
     def __init__(self, state, actions):
         self.state = state
-        self.actions = actions
-    
-
-
-
+        self.actions = actions    
     
 def getActions(problem, fringe):
     """ Returns the list of actions to reach the goal,
     Based on a given fringe, Fringe has to implement push, pop, isEmpty """
+    
     # Start with start state in fringe, and no visited nodes.    
     fringe.push( fringeState(problem.getStartState(), []) )
     visited = set()
     
     while not fringe.isEmpty():
         current = fringe.pop()
-
+        
         if current.state in visited:
             continue
         
@@ -99,8 +95,9 @@ def getActions(problem, fringe):
             return current.actions
 
         # Add all current's children to fringe
-        for succ in problem.getSuccessors(current.state):
+        for succ in problem.getSuccessors(current.state):        
             fringe.push( fringeState(succ[0], current.actions + [succ[1]]) )
+            
                         
 def depthFirstSearch(problem):
     """
@@ -115,17 +112,20 @@ def depthFirstSearch(problem):
     print("Start:", problem.getStartState())
     print("Is the start a goal?", problem.isGoalState(problem.getStartState()))
     print("Start's successors:", problem.getSuccessors(problem.getStartState()))
-    """    
+    """
+    # When the fringe is a stack, the resulting search order is DFS    
     fringe = Stack()
     return getActions(problem, fringe)
 
 def breadthFirstSearch(problem):
     """ Search the shallowest nodes in the search tree first. [p 81] """
+    # When the fringe is a queue, the resulting search order is BFS
     fringe = Queue()
     return getActions(problem, fringe)
 
 def uniformCostSearch(problem):
     """ Search the node of least total cost first. """
+    # When the fringe is a queue ordered by a cost function, the resulting search order is UCS
     fringe = PriorityQueueWithFunction(getCostFunc(problem))
     return getActions(problem, fringe)
 
@@ -144,6 +144,8 @@ def getCostFunc(problem, heuristic=nullHeuristic):
     
 def aStarSearch(problem, heuristic=nullHeuristic):
     "Search the node that has the lowest combined cost and heuristic first."
+    # When the fringe is a queue ordered by a cost function which includes a heuristic,
+    # the resulting search order is A*
     fringe = PriorityQueueWithFunction(getCostFunc(problem, heuristic))
     return getActions(problem, fringe)
 

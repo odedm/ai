@@ -34,7 +34,7 @@ from game import Actions
 import util
 import time
 import search
-import searchAgents
+import kruskal
 
 class GoWestAgent(Agent):
     "An agent that goes West until it can't."
@@ -257,6 +257,44 @@ def euclideanHeuristic(position, problem, info={}):
 # This portion is incomplete.  Time to write code!  #
 #####################################################
 
+class CornersState(object):
+    """
+    A class representing a state in a corners problem.
+    """
+    
+    def __init__(self, pos, eaten=None):
+        self.pos = pos
+        if eaten:
+            self.eaten = eaten
+        else:
+            self.eaten = [False] * 4
+    
+    def ateCorner(self, corner):
+        """ Marks the corner as eaten """
+        self.eaten[corner] = True
+    
+    def isEaten(self, corner):
+        """ Returns True iff the corner was eaten """
+        return self.eaten[corner]        
+        
+    def getRemainingCorners(self):
+        """ Return the numbers of non-eaten corners """
+        return [i for i in self.eaten if not self.eaten[i]]
+    
+    def isGoal(self):
+        """ Check if all corners were eaten """
+        return sum(self.eaten) == 4    
+    
+    def __str__(self):
+        return str(self.pos) + str(self.eaten)
+    
+    def __eq__(self, other):
+        return self.pos == other.pos and self.eaten == other.eaten
+    
+    def __hash__(self):
+        return hash(str(self))
+    
+                
 class CornersProblem(search.SearchProblem):
     """
     This search problem finds paths through all four corners of a layout.
@@ -276,18 +314,16 @@ class CornersProblem(search.SearchProblem):
             if not startingGameState.hasFood(*corner):
                 print('Warning: no food in corner ' + str(corner))
         self._expanded = 0 # Number of search nodes expanded
-
-        "*** YOUR CODE HERE ***"
+        self.startState = CornersState(self.startingPosition)
+        
 
     def getStartState(self):
         "Returns the start state (in your state space, not the full Pacman state space)"
-        "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        return self.startState
 
     def isGoalState(self, state):
         "Returns whether this search state is a goal state of the problem"
-        "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        return state.isGoal()
 
     def getSuccessors(self, state):
         """
@@ -300,19 +336,31 @@ class CornersProblem(search.SearchProblem):
          required to get there, and 'stepCost' is the incremental
          cost of expanding to that successor
         """
-
+        
+        # Succesor states are either advancements as usual (without hitting walls),
+        # or new states with a corner reached.
         successors = []
         for action in [Directions.NORTH, Directions.SOUTH, Directions.EAST, Directions.WEST]:
-            # Add a successor state to the successor list if the action is legal
-            # Here's a code snippet for figuring out whether a new position hits a wall:
-            #   x,y = currentPosition
-            #   dx, dy = Actions.directionToVector(action)
-            #   nextx, nexty = int(x + dx), int(y + dy)
-            #   hitsWall = self.walls[nextx][nexty]
+            x, y = state.pos
+            dx, dy = Actions.directionToVector(action)
+            nextx, nexty = int(x + dx), int(y + dy)
+                        
+            if not self.walls[nextx][nexty]:
+                # Advance position, then check whether we've reached a corner
+                nextState = CornersState((nextx, nexty), state.eaten[:])
 
-            "*** YOUR CODE HERE ***"
-
-        self._expanded += 1
+                if (nextx, nexty) == self.corners[0]:
+                    nextState.ateCorner(0)
+                elif (nextx, nexty) == self.corners[1]:
+                    nextState.ateCorner(1)
+                elif (nextx, nexty) == self.corners[2]:
+                    nextState.ateCorner(2)
+                elif (nextx, nexty) == self.corners[3]:
+                    nextState.ateCorner(3)                    
+            
+                successors.append( (nextState, action, 1) )
+            
+        self._expanded += 1      
         return successors
 
     def getCostOfActions(self, actions):
@@ -343,11 +391,41 @@ def cornersHeuristic(state, problem):
     it should be admissible.  (You need not worry about consistency for
     this heuristic to receive full credit.)
     """
-    corners = problem.corners # These are the corner coordinates
+    corners = list(enumerate(problem.corners)) # These are the corner coordinates
     walls = problem.walls # These are the walls of the maze, as a Grid (game.py)
-
-    "*** YOUR CODE HERE ***"
-    return 0 # Default to trivial solution
+    
+    # Our heursitic gives the following prediction:
+    # A lower bound on the distance of a path to all remaining corners has to comprise of:
+    # a. Manhattan distance to the closest corner
+    # b. A trip around the edges of the board to get to the remaining corners
+    # Get manhattan distance to each corner
+    
+    man_dist_to_cors = [util.manhattanDistance(c, state.pos)
+                        for i, c in corners if not state.isEaten(i)]
+    
+    if not man_dist_to_cors:
+        return 0
+    
+    # Start with the distance to the closest one
+    total = min(man_dist_to_cors)
+        
+    remain = state.getRemainingCorners()
+    
+    if len(remain) == 2:
+        # Add the minimal distance to the one remaining corner.
+        total += util.manhattanDistance(corners[remain[0]][1], corners[remain[1]][1])
+                
+    elif len(remain) == 3:
+        # Add the minimal distance to the two remaining corners.
+        # Note that this gives an even lower-than-reality result when
+        # two corners are diagonal to each other.
+        total += walls.height + walls.width
+         
+    elif len(remain) == 4:
+        # Add the shortest path around the perimeter of the board.
+        total += min(2 * walls.height + walls.width, walls.height + 2 * walls.width)
+    
+    return total
 
 class AStarCornersAgent(SearchAgent):
     "A SearchAgent for FoodSearchProblem using A* and your foodHeuristic"
@@ -411,6 +489,19 @@ class AStarFoodSearchAgent(SearchAgent):
         self.searchFunction = lambda prob: search.aStarSearch(prob, foodHeuristic)
         self.searchType = FoodSearchProblem
 
+def get_mst(foodList):
+    """
+    Builds an MST from the food list, using food coordinates
+    as nodes in a fully-connected graph, with Manhattan distances acting as weights
+    between every two nodes.
+    """
+    g = kruskal.Graph(foodList)
+    for pos in foodList:
+        for pos2 in foodList:
+            g.add_edge(pos, pos2, util.manhattanDistance(pos, pos2))
+    
+    return kruskal.kruskal(g)
+    
 def foodHeuristic(state, problem):
     """
     Your heuristic for the FoodSearchProblem goes here.
@@ -437,8 +528,71 @@ def foodHeuristic(state, problem):
     Subsequent calls to this heuristic can access problem.heuristicInfo['wallCount']
     """
     position, foodGrid = state
-    "*** YOUR CODE HERE ***"
-    return 0
+    
+    # Get the food list
+    foodList = foodGrid.asList()
+    
+    # Generate MST using Kruskal's algorithm and Manhattan distances as weights
+    mst = get_mst(foodList)
+    total = sum([x[0] for x in mst])
+    
+    if foodList:
+        total += min([util.manhattanDistance(position, fxy) for fxy in foodList])
+    
+    """
+    # predict extra distance for foods that have a wall separating them.
+    # Only vertical and horizontal edges are considered.    
+    for edge in mst:    
+        if edge[1][0] == edge[2][0]:
+            # Same X
+            x = edge[1][0]
+            y1 = edge[1][1]
+            y2 = edge[2][1]
+            for i in range(min(y1, y2) + 1, max(y1,y2)):
+                if problem.walls[x][i]:
+                    total += 1 # "Skipping a wall" requires at least a single step.
+        
+        elif edge[1][1] == edge[2][1]:
+            # Same Y
+            y = edge[1][1]
+            x1 = edge[1][0]
+            x2 = edge[2][0]
+            for i in range(min(x1, x2) + 1, max(x1,x2)):
+                if problem.walls[i][y]:
+                    total += 1
+    """
+    # predict extra distance for foods that have a wall separating them.
+    # Once a food we took into account a wall-crossing edge,
+    # We'll not predict extra distance for any other food touching it.
+    # Only vertical and horizontal edges are considered.
+    
+    used = set()          
+    for edge in mst:    
+        if not (edge[1] in used) and not (edge[2] in used) and edge[1][0] == edge[2][0]:
+            # Same X
+            x = edge[1][0]
+            y1 = edge[1][1]
+            y2 = edge[2][1]
+            for i in range(min(y1, y2) + 1, max(y1,y2)):
+                if problem.walls[x][i]:
+                    used.add(edge[1])
+                    used.add(edge[2])
+                    total += 1 # "Skipping a wall" requires at least 4 steps.
+        
+        elif not (edge[1] in used) and not (edge[2] in used) and edge[1][1] == edge[2][1]:
+            # Same Y
+            y = edge[1][1]
+            x1 = edge[1][0]
+            x2 = edge[2][0]
+            for i in range(min(x1, x2) + 1, max(x1,x2)):
+                if problem.walls[i][y]:
+                    used.add(edge[1])
+                    used.add(edge[2])
+                    total += 1
+            
+    return total
+
+    
 
 class ClosestDotSearchAgent(SearchAgent):
     "Search for all food using a sequence of searches"
@@ -464,9 +618,9 @@ class ClosestDotSearchAgent(SearchAgent):
         food = gameState.getFood()
         walls = gameState.getWalls()
         problem = AnyFoodSearchProblem(gameState)
-
-        "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        
+        # BFS Optimality assures we'll get to the closest food
+        return search.breadthFirstSearch(problem)
 
 class AnyFoodSearchProblem(PositionSearchProblem):
     """
@@ -500,9 +654,8 @@ class AnyFoodSearchProblem(PositionSearchProblem):
         that will complete the problem definition.
         """
         x,y = state
-
-        "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        # Reached food = reched goal
+        return self.food[x][y]
 
 ##################
 # Mini-contest 1 #
