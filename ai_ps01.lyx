@@ -253,7 +253,7 @@
 
 \begin_layout Standard
 שני קניבלים: 
-\begin_inset Formula $\left(c,m,0\ |\ \left(c\geq2\right)\ \land\ \left(m=0\lor m=3\right)\right)\rightarrow\left(c-2,m,1\right)$
+\begin_inset Formula $\left(c,m,0\ |\ \left(c\geq2\right)\ \land\ \left(3-c+2\leq3-m\right)\right)\rightarrow\left(c-2,m,1\right)$
 \end_inset
 
 
@@ -261,7 +261,7 @@
 
 \begin_layout Standard
 קניבל ושליח: 
-\begin_inset Formula $\left(c,m,0\ |\ c,m\geq1\right)\rightarrow\left(c-1,m-1,1\right)$
+\begin_inset Formula $\left(c,m,0\ |\ c,m\geq1,\ c\leq m\right)\rightarrow\left(c-1,m-1,1\right)$
 \end_inset
 
 
@@ -417,6 +417,174 @@
 \noun default
 \color inherit
 5
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $h$
+\end_inset
+
+ אינה אדמיסבילית.
+ נניח שיש על הלוח שתי נקודות 
+\begin_inset Formula $x_{1},x_{2}$
+\end_inset
+
+, כך שהקבוצה 
+\begin_inset Formula $\left\{ position,x_{1},x_{2}\right\} $
+\end_inset
+
+ יוצרת משולש שווה צלעות שאורך צלעו
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+.
+\end_layout
+
+\begin_layout Standard
+המרחק מכל נקודה לזו הקרובה ביותר אליה הוא
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+, ולכן 
+\begin_inset Formula $h\left(s\right)=3$
+\end_inset
+
+.
+ לעומת זאת, הפתרון האופטימלי עבור פקמן הוא התקדמות לנקודה הראשונה )מרחק
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+( ואז לשניה )מרחק
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+(, ובסה"כ מרחק
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\numeric off
+.
+\end_layout
+
+\begin_layout Standard
+כלומר, במקרה זה הפוקנציה 
+\begin_inset Formula $h$
+\end_inset
+
+ נותנת הערכה שגבוהה מהפתרון האופטימלי, ולכן היא אינה אדמיסבילית.
 \end_layout
 
 \begin_layout Section
