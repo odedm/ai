@@ -490,18 +490,82 @@ class AStarFoodSearchAgent(SearchAgent):
         self.searchFunction = lambda prob: search.aStarSearch(prob, foodHeuristic)
         self.searchType = FoodSearchProblem
 
+
+class Kruskal(object):
+    """ This class implements the kruskal algorithm """
+    
+    def __init__(self):
+        self.parent = {}
+        self.rank = {}
+    
+    def make_set(self, vertice):
+        self.parent[vertice] = vertice
+        self.rank[vertice] = 0
+    
+    def find(self, vertice):
+        if self.parent[vertice] != vertice:
+            self.parent[vertice] = self.find(self.parent[vertice])
+        return self.parent[vertice]
+    
+    def union(self, vertice1, vertice2):
+        root1 = self.find(vertice1)
+        root2 = self.find(vertice2)
+        if root1 != root2:
+            if self.rank[root1] > self.rank[root2]:
+                self.parent[root2] = root1
+            else:
+                self.parent[root1] = root2
+                if self.rank[root1] == self.rank[root2]: self.rank[root2] += 1
+    
+    def kruskal(self, graph):
+        """ Returns the MST of the given graph """
+        for vertice in graph.vertices:
+            self.make_set(vertice)
+    
+        mst = set()
+        edges = list(graph.edges)
+        edges.sort()
+        for edge in edges:
+            weight, vertice1, vertice2 = edge
+            if self.find(vertice1) != self.find(vertice2):
+                self.union(vertice1, vertice2)
+                mst.add(edge)
+        return mst
+
+
+class Graph(object):
+    """ Represents an abstract graph.
+    Example graph:
+    graph = {
+        vertices: ['A', 'B', 'C', 'D', 'E', 'F'],
+        edges: set([(1, 'A', 'B'), (5, 'A', 'C') ])
+        }
+    """
+    
+    def __init__(self, vertices):
+        self.vertices = vertices
+        self.edges = set()
+        
+    def add_edge(self, v1, v2, w):
+        if v1 != v2:
+            self.edges.add((w, v1, v2))
+
+
 def get_mst(foodList):
     """
     Builds an MST from the food list, using food coordinates
     as nodes in a fully-connected graph, with Manhattan distances acting as weights
     between every two nodes.
     """
-    g = kruskal.Graph(foodList)
+    
+    k = Kruskal()
+    g = Graph(foodList)
     for pos in foodList:
         for pos2 in foodList:
             g.add_edge(pos, pos2, util.manhattanDistance(pos, pos2))
     
-    return kruskal.kruskal(g)
+    return k.kruskal(g)
+
     
 def foodHeuristic(state, problem):
     """
