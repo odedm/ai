@@ -2,8 +2,12 @@
 # ---------------
 # An implementation of Kruskal's algorithm.
 # Used to find a minimal spanning tree.
+# Based on an algorithm found online.
+
 parent = dict()
 rank = dict()
+
+# Helper methods for Kruskal union-find
 
 def make_set(vertice):
     parent[vertice] = vertice
@@ -25,6 +29,7 @@ def union(vertice1, vertice2):
             if rank[root1] == rank[root2]: rank[root2] += 1
 
 def kruskal(graph):
+    """ Returns the MST of the given graph """
     for vertice in graph.vertices:
         make_set(vertice)
 
@@ -39,6 +44,17 @@ def kruskal(graph):
     return minimum_spanning_tree
 
 class Graph(object):
+    """ Represents an abstract graph.
+    Example graph:
+    graph = {
+        vertices: ['A', 'B', 'C', 'D', 'E', 'F'],
+        edges: set([
+            (1, 'A', 'B'),
+            (5, 'A', 'C'),
+            ])
+        }
+    """
+    
     def __init__(self, vertices):
         self.vertices = vertices
         self.edges = set()
@@ -46,17 +62,3 @@ class Graph(object):
     def add_edge(self, v1, v2, w):
         if v1 != v2:
             self.edges.add((w, v1, v2))
-
-"""
-graph = {
-        'vertices': ['A', 'B', 'C', 'D', 'E', 'F'],
-        'edges': set([
-            (1, 'A', 'B'),
-            (5, 'A', 'C'),
-            (3, 'A', 'D'),
-            (4, 'B', 'C'),
-            (2, 'B', 'D'),
-            (1, 'C', 'D'),
-            ])
-        }
-"""
