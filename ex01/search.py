@@ -84,19 +84,19 @@ def getActions(problem, fringe):
     
     while not fringe.isEmpty():
         current = fringe.pop()
-        
-        if current.state in visited:
-            continue
-        
-        visited.add(current.state)
-        
+
         if problem.isGoalState(current.state):
             # Reached goal
             return current.actions
+                    
+        if current.state in visited:
+            continue                
 
         # Add all current's children to fringe
         for succ in problem.getSuccessors(current.state):        
             fringe.push( fringeState(succ[0], current.actions + [succ[1]]) )
+        
+        visited.add(current.state)
             
                         
 def depthFirstSearch(problem):

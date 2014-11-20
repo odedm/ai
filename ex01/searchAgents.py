@@ -34,6 +34,7 @@ from game import Actions
 import util
 import time
 import search
+import searchAgents
 import kruskal
 
 class GoWestAgent(Agent):
@@ -529,69 +530,17 @@ def foodHeuristic(state, problem):
     """
     position, foodGrid = state
     
-    # Get the food list
+    # Get the food list. Add pacman position to it.
     foodList = foodGrid.asList()
+    foodList.append(position)
     
-    # Generate MST using Kruskal's algorithm and Manhattan distances as weights
+    # Generate MST using Kruskal's algorithm.
+    # Nodes are pacman position and food positions.
+    # Manhattan distances are used as weights.
     mst = get_mst(foodList)
     total = sum([x[0] for x in mst])
     
-    if foodList:
-        total += min([util.manhattanDistance(position, fxy) for fxy in foodList])
-    
-    """
-    # predict extra distance for foods that have a wall separating them.
-    # Only vertical and horizontal edges are considered.    
-    for edge in mst:    
-        if edge[1][0] == edge[2][0]:
-            # Same X
-            x = edge[1][0]
-            y1 = edge[1][1]
-            y2 = edge[2][1]
-            for i in range(min(y1, y2) + 1, max(y1,y2)):
-                if problem.walls[x][i]:
-                    total += 1 # "Skipping a wall" requires at least a single step.
-        
-        elif edge[1][1] == edge[2][1]:
-            # Same Y
-            y = edge[1][1]
-            x1 = edge[1][0]
-            x2 = edge[2][0]
-            for i in range(min(x1, x2) + 1, max(x1,x2)):
-                if problem.walls[i][y]:
-                    total += 1
-    """
-    # predict extra distance for foods that have a wall separating them.
-    # Once a food we took into account a wall-crossing edge,
-    # We'll not predict extra distance for any other food touching it.
-    # Only vertical and horizontal edges are considered.
-    
-    used = set()          
-    for edge in mst:    
-        if not (edge[1] in used) and not (edge[2] in used) and edge[1][0] == edge[2][0]:
-            # Same X
-            x = edge[1][0]
-            y1 = edge[1][1]
-            y2 = edge[2][1]
-            for i in range(min(y1, y2) + 1, max(y1,y2)):
-                if problem.walls[x][i]:
-                    used.add(edge[1])
-                    used.add(edge[2])
-                    total += 1 # "Skipping a wall" requires at least 4 steps.
-        
-        elif not (edge[1] in used) and not (edge[2] in used) and edge[1][1] == edge[2][1]:
-            # Same Y
-            y = edge[1][1]
-            x1 = edge[1][0]
-            x2 = edge[2][0]
-            for i in range(min(x1, x2) + 1, max(x1,x2)):
-                if problem.walls[i][y]:
-                    used.add(edge[1])
-                    used.add(edge[2])
-                    total += 1
-            
     return total
-
     
 
 class ClosestDotSearchAgent(SearchAgent):
