@@ -645,6 +645,116 @@
 7
 \end_layout
 
+\begin_layout Standard
+טענה: אם 
+\begin_inset Formula $h$
+\end_inset
+
+ יוריסטיקה קונסיסטנטית, אז היא אדמיסבלית.
+\end_layout
+
+\begin_layout Standard
+הוכחה: באינדוקציה.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $h$
+\end_inset
+
+ קונסיסטנטית, לכן לכל קודקוד 
+\begin_inset Formula $n$
+\end_inset
+
+ מתקיים 
+\end_layout
+
+\begin_layout Standard
+יהא 
+\begin_inset Formula $n_{1}$
+\end_inset
+
+ קודקוד כלשהו.
+ אז קיים עבורו מסלול אופטימלי 
+\begin_inset Formula $n_{1},n_{2},\dots,n_{k}$
+\end_inset
+
+ למטרה כלשהי 
+\begin_inset Formula $n_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+נוכיח באינדוקציה על 
+\begin_inset Formula $k$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+אם 
+\begin_inset Formula $k=1$
+\end_inset
+
+, אז 
+\begin_inset Formula $n_{1}$
+\end_inset
+
+ הוא קודקוד מטרה, ולכן 
+\begin_inset Formula $h\left(n\right)=0\leq c\left(n\right)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+נניח נכונות עבור 
+\begin_inset Formula $k$
+\end_inset
+
+, ונוכיח עבור 
+\begin_inset Formula $k+1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+מהנחת האינדוקציה, 
+\begin_inset Formula $h\left(n\right)\leq$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+נניח בשלילה ש-
+\begin_inset Formula $h$
+\end_inset
+
+ אינה אדמיסבילית.
+ אז קיים קודקוד 
+\begin_inset Formula $n$
+\end_inset
+
+ כך ש 
+\begin_inset Formula $h\left(n\right)>c\left(n\right)$
+\end_inset
+
+ )כאשר 
+\begin_inset Formula $c\left(n\right)$
+\end_inset
+
+ הוא העלות המינימלית האמיתית מ-
+\begin_inset Formula $h$
+\end_inset
+
+ לקודקוד מטרה(.
+ 
+\end_layout
+
 \begin_layout Section
 שאלה
 \family roman
