@@ -646,7 +646,13 @@
 \end_layout
 
 \begin_layout Standard
-טענה: אם 
+
+\series bold
+\bar under
+טענה:
+\series default
+\bar default
+ אם 
 \begin_inset Formula $h$
 \end_inset
 
@@ -654,67 +660,70 @@
 \end_layout
 
 \begin_layout Standard
-הוכחה: באינדוקציה.
+
+\series bold
+\bar under
+הוכחה:
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $h$
-\end_inset
-
- קונסיסטנטית, לכן לכל קודקוד 
+צ"ל שלכל קודקוד 
 \begin_inset Formula $n$
 \end_inset
 
  מתקיים 
+\begin_inset Formula $h\left(n\right)\leq c\left(n\right)$
+\end_inset
+
+, כאשר 
+\begin_inset Formula $c\left(n\right)$
+\end_inset
+
+ הוא העלות המינימלית האמיתית מ-
+\begin_inset Formula $n$
+\end_inset
+
+ לקודקוד מטרה.
 \end_layout
 
 \begin_layout Standard
-יהא 
-\begin_inset Formula $n_{1}$
+נוכיח באינדוקציה על אורך המסלול מ-
+\begin_inset Formula $n$
 \end_inset
 
- קודקוד כלשהו.
- אז קיים עבורו מסלול אופטימלי 
-\begin_inset Formula $n_{1},n_{2},\dots,n_{k}$
-\end_inset
-
- למטרה כלשהי 
-\begin_inset Formula $n_{k}$
-\end_inset
-
-.
+ לקודקוד מטרה.
 \end_layout
 
 \begin_layout Standard
-נוכיח באינדוקציה על 
-\begin_inset Formula $k$
+בסיס: אם 
+\begin_inset Formula $n$
 \end_inset
 
-:
+ קודקוד מטרה בעצמו, אז מהגדרת קונסיסטנטיות, 
+\begin_inset Formula $h\left(n\right)=0$
+\end_inset
+
+, כלומר 
+\begin_inset Formula $h\left(n\right)=c\left(n\right)$
+\end_inset
+
+ ולכן 
+\begin_inset Formula $h$
+\end_inset
+
+ אדמיסבילית.
 \end_layout
 
 \begin_layout Standard
 אם 
-\begin_inset Formula $k=1$
+\begin_inset Formula $n$
 \end_inset
 
-, אז 
-\begin_inset Formula $n_{1}$
-\end_inset
-
- הוא קודקוד מטרה, ולכן 
-\begin_inset Formula $h\left(n\right)=0\leq c\left(n\right)=0$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-נניח נכונות עבור 
+ איננו קודקוד מטרה, נניח נכונות למסלול באורך 
 \begin_inset Formula $k$
 \end_inset
 
-, ונוכיח עבור 
+ ונוכיח עבור מסלול באורך 
 \begin_inset Formula $k+1$
 \end_inset
 
@@ -722,37 +731,79 @@
 \end_layout
 
 \begin_layout Standard
-מהנחת האינדוקציה, 
-\begin_inset Formula $h\left(n\right)\leq$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-נניח בשלילה ש-
+מקונסיסטנטיות 
 \begin_inset Formula $h$
 \end_inset
 
- אינה אדמיסבילית.
- אז קיים קודקוד 
+, מתקיים 
+\begin_inset Formula $h\left(n\right)\leq c\left(n,a,n'\right)+h\left(n'\right)$
+\end_inset
+
+ לכל יורש 
+\begin_inset Formula $n'$
+\end_inset
+
+ של 
 \begin_inset Formula $n$
 \end_inset
 
- כך ש 
-\begin_inset Formula $h\left(n\right)>c\left(n\right)$
+ שנוצר מהפעולה 
+\begin_inset Formula $a$
 \end_inset
 
- )כאשר 
+.
+\end_layout
+
+\begin_layout Standard
+אבל לכל 
+\begin_inset Formula $n'$
+\end_inset
+
+ כנ"ל, המסלול הקצר ביותר ממנו לקודקוד מטרה הוא באורך 
+\begin_inset Formula $k-1$
+\end_inset
+
+, ולכן מקיים את הנחת האינדוקציה - 
+\begin_inset Formula $h\left(n'\right)\leq c\left(n'\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+לכן 
+\begin_inset Formula $h\left(n\right)\leq c\left(n,a,n'\right)+c\left(n'\right)$
+\end_inset
+
+ לכל יורש 
+\begin_inset Formula $n'$
+\end_inset
+
+ של 
+\begin_inset Formula $n$
+\end_inset
+
+, ובפרט לזה עבורו 
+\begin_inset Formula $c\left(n,a,n'\right)+c\left(n'\right)$
+\end_inset
+
+ מינימלי.
+\end_layout
+
+\begin_layout Standard
+נשים לב שערך מינימלי זה הוא בדיוק 
 \begin_inset Formula $c\left(n\right)$
 \end_inset
 
- הוא העלות המינימלית האמיתית מ-
+, ולכן 
+\begin_inset Formula $h\left(n\right)\leq c\left(n\right)$
+\end_inset
+
+, כלומר 
 \begin_inset Formula $h$
 \end_inset
 
- לקודקוד מטרה(.
- 
+ אדמיסבילית כנדרש.
 \end_layout
 
 \begin_layout Section
