@@ -575,15 +575,7 @@
 
 \begin_layout Standard
 נגדיר את קבוצת המצבים שלנו להיות 
-\begin_inset Formula $S=\left\{ 0,1\right\} ^{n}$
-\end_inset
-
-, כלומר וקטורים באורך 
-\begin_inset Formula $n$
-\end_inset
-
- מעל 
-\begin_inset Formula $\left\{ 0,1\right\} $
+\begin_inset Formula $S=\left\{ 0\dots n\right\} ^{n}$
 \end_inset
 
 .
@@ -945,6 +937,86 @@
 6
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+\bar under
+טענה:
+\series default
+\bar default
+ אם 
+\begin_inset Formula $h$
+\end_inset
+
+ היא 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+-אדמיסבילית, ו-
+\begin_inset Formula $A^{*}$
+\end_inset
+
+ המשתמש ב-
+\begin_inset Formula $h$
+\end_inset
+
+ מחזיר פתרון 
+\begin_inset Formula $C$
+\end_inset
+
+, אז 
+\begin_inset Formula $C\leq C^{*}+\epsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+הוכחה:
+\end_layout
+
+\begin_layout Standard
+נניח בשלילה ש-
+\begin_inset Formula $h$
+\end_inset
+
+ מחזירה פתרון עבורו 
+\begin_inset Formula $C'>C^{*}+\epsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+אז 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $h$
+\end_inset
+
+ היא 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+-אדמיסבילית, אז יש 
+\begin_inset Formula $h^{*}$
+\end_inset
+
+ כך שלכל מצב 
+\begin_inset Formula $s\in S$
+\end_inset
+
+ מתקיים 
+\begin_inset Formula $h\left(s\right)\leq h^{*}\left(s\right)+\epsilon$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Section
 שאלה
 \family roman
@@ -1194,35 +1266,32 @@
 
 \series bold
 \bar under
-הוכחה:
+דוגמה נגדית:
 \end_layout
 
 \begin_layout Standard
-נניח בשלילה ש-
-\begin_inset Formula $h_{2}$
+\begin_inset Formula $ $
 \end_inset
 
- אינה קונסיסטנטית.
+
 \end_layout
 
 \begin_layout Standard
-אז יש קודקודים 
-\begin_inset Formula $n,n'$
+\begin_inset Graphics
+	filename ai_ps01_q8.png
+	scale 70
+
 \end_inset
 
- ופעולה 
-\begin_inset Formula $a$
-\end_inset
 
- כך שמתקיים 
-\begin_inset Formula $h_{2}\left(n\right)>c\left(n,a,n'\right)+h_{2}\left(n'\right)$
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Standard
-אבל 
+בשרטוט לעיל מתואר אותו הגרף עם שתי יוריסטיקות שונות 
+\begin_inset Formula $h_{1},h_{2}$
+\end_inset
+
+, שתיהן אדמיסביליות, ו-
 \begin_inset Formula $h_{1}$
 \end_inset
 
@@ -1230,23 +1299,64 @@
 \begin_inset Formula $h_{2}$
 \end_inset
 
-, לכן 
-\begin_inset Formula $h_{1}\left(n\right)\geq h_{2}\left(n\right)>c\left(n,a,n'\right)+h_{2}\left(n'\right)$
+.
+ 
+\end_layout
+
+\begin_layout Standard
+עם זאת, נשים לב ש-
+\begin_inset Formula $h_{1}$
 \end_inset
 
-, בסתירה לקונסיסטנטיות של 
-\begin_inset Formula $h_{1}$
+ קונסיסטנטית, אבל 
+\begin_inset Formula $h_{2}$
+\end_inset
+
+ אינה קונסיסטנטית
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ - עבור הקודקוד 
+\begin_inset Formula $A$
+\end_inset
+
+ מתקיים: 
+\begin_inset Formula $h\left(A\right)=5$
+\end_inset
+
+, 
+\begin_inset Formula $c\left(A,B\right)+h\left(B\right)=1+2=3$
+\end_inset
+
+, כלומר 
+\begin_inset Formula $h\left(A\right)>c\left(A,B\right)+h\left(B\right)$
 \end_inset
 
 .
 \end_layout
 
 \begin_layout Standard
-מכאן שלא ייתכן קודקוד כנ"ל, כלומר 
+בסה"כ נקבל ש-
+\begin_inset Formula $h_{1}$
+\end_inset
+
+ קונסיסטנטית ושולטת על 
 \begin_inset Formula $h_{2}$
 \end_inset
 
- קונסיסטנטית כנדרש.
+, אבל 
+\begin_inset Formula $h_{2}$
+\end_inset
+
+ אינה קונסיסטנטית, בסתירה לטענה.
 \end_layout
 
 \begin_layout Section
