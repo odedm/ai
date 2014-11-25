@@ -835,6 +835,91 @@
 8
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+\bar under
+טענה:
+\series default
+\bar default
+ אם 
+\begin_inset Formula $h_{1}$
+\end_inset
+
+ שולטת על 
+\begin_inset Formula $h_{2}$
+\end_inset
+
+ ו-
+\begin_inset Formula $h_{1}$
+\end_inset
+
+ קונסיסטנטית, אז 
+\begin_inset Formula $h_{2}$
+\end_inset
+
+ קונסיסטנטית.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+הוכחה:
+\end_layout
+
+\begin_layout Standard
+נניח בשלילה ש-
+\begin_inset Formula $h_{2}$
+\end_inset
+
+ אינה קונסיסטנטית.
+\end_layout
+
+\begin_layout Standard
+אז יש קודקודים 
+\begin_inset Formula $n,n'$
+\end_inset
+
+ ופעולה 
+\begin_inset Formula $a$
+\end_inset
+
+ כך שמתקיים 
+\begin_inset Formula $h_{2}\left(n\right)>c\left(n,a,n'\right)+h_{2}\left(n'\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+אבל 
+\begin_inset Formula $h_{1}$
+\end_inset
+
+ שולטת על 
+\begin_inset Formula $h_{2}$
+\end_inset
+
+, לכן 
+\begin_inset Formula $h_{1}\left(n\right)\geq h_{2}\left(n\right)>c\left(n,a,n'\right)+h_{2}\left(n'\right)$
+\end_inset
+
+, בסתירה לקונסיסטנטיות של 
+\begin_inset Formula $h_{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+מכאן שלא ייתכן קודקוד כנ"ל, כלומר 
+\begin_inset Formula $h_{2}$
+\end_inset
+
+ קונסיסטנטית כנדרש.
+\end_layout
+
 \begin_layout Section
 שאלה
 \family roman
