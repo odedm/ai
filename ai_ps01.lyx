@@ -979,15 +979,116 @@
 \end_layout
 
 \begin_layout Standard
+באינדוקציה על 
+\begin_inset Formula $k$
+\end_inset
+
+, האורך )בקודקודים( של הפתרון האופטימלי.
+\end_layout
+
+\begin_layout Standard
+אם 
+\begin_inset Formula $k=0$
+\end_inset
+
+ אז 
+\begin_inset Formula $s$
+\end_inset
+
+ הוא מצב מטרה, לכן 
+\begin_inset Formula $h^{*}\left(s\right)=0$
+\end_inset
+
+ ולכן 
+\begin_inset Formula $h\left(s\right)\leq\epsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+נניח נכונות ל-
+\begin_inset Formula $k$
+\end_inset
+
+ ונוכיח עבור 
+\begin_inset Formula $k+1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+נניח ש-
+\begin_inset Formula $s$
+\end_inset
+
+ קודקוד בעל שהמרחק האופטימלי שלו מקודקוד יעד הוא 
+\begin_inset Formula $k+1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+אז עבור 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h\left(s\right)\leq h^{*}\left(s\right)+\epsilon\leq
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 נניח בשלילה ש-
+\begin_inset Formula $A^{*}$
+\end_inset
+
+ המשתמש ב-
 \begin_inset Formula $h$
 \end_inset
 
- מחזירה פתרון עבורו 
+ מחזיר פתרון 
+\begin_inset Formula $C'$
+\end_inset
+
+ עבורו 
 \begin_inset Formula $C'>C^{*}+\epsilon$
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $h$
+\end_inset
+
+ היא 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+-אדמיסבילית אז 
+\begin_inset Formula $h\left(start\right)\leq h^{*}\left(start\right)+\epsilon\leq C^{*}+\epsilon<C'$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+C'>C^{*}+\epsilon\geq h^{*}\left(start\right)+\epsilon\geq h\left(start\right)
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1015,6 +1116,13 @@
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $h\left(start\right)\leq h^{*}\left(start\right)+\epsilon\leq C^{*}+\epsilon$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
