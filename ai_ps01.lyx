@@ -332,6 +332,218 @@
 2
 \end_layout
 
+\begin_layout Standard
+\begin_inset Formula $ID-DFS-2$
+\end_inset
+
+ הוא שלם: נניח ש-
+\begin_inset Formula $G$
+\end_inset
+
+ קודקוד מטרה בעץ.
+ אז הוא נמצא בעומק כלשהו 
+\begin_inset Formula $d_{G}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+מכיוון שהאלגוריתם סורק את כל העץ עד עומק 
+\begin_inset Formula $d_{max}$
+\end_inset
+
+ בכל איטרציה שהגיעה ל-
+\begin_inset Formula $cutoff$
+\end_inset
+
+, קיימת איטרציה בה 
+\begin_inset Formula $d_{max}\geq d_{G}$
+\end_inset
+
+, ובה יימצא הקודקוד 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ID-DFS-2$
+\end_inset
+
+ הוא נאות תחת ההנחה שעומק העץ סופי - אם עומק העץ סופי, האלגוריתם תמיד יגיע
+ לעומק המקסימלי, יסרוק את כל הקודקודים בעומק זה, וכשלא ימצא פתרון יחזיר
+ 
+\begin_inset Formula $failure$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ID-DFS-2$
+\end_inset
+
+ אינו אופטימלי: נניח שהתחלנו את האיטרציה שבה 
+\begin_inset Formula $d_{max}=8$
+\end_inset
+
+, ויש שני פתרונות - פתרון אופטימלי על הענף הימני ביותר, בעומק
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+5
+\numeric off
+, ופתרון אחר בענף השמאלי ביותר, בעומק 
+\begin_inset Formula $8$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+במקרה כזה, האלגוריתם יגיע לפתרון בעומק
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+8
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+לפני זה שבעומק
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+5
+\numeric off
+, ויחזיר פתרון לא אופטימלי.
+\end_layout
+
+\begin_layout Standard
+סיבוכיות זמן: במקרה הגרוע ביותר יהיה עלינו לעבור על כל הקודקודים בעץ עד
+ עומק 
+\begin_inset Formula $d$
+\end_inset
+
+, ולכן הסיבוכיות היא 
+\begin_inset Formula $O\left(b^{d}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+סיבוכיות מקום: בדומה ל-
+\begin_inset Formula $DFS$
+\end_inset
+
+, בכל רגע נתון אנו צריכים לשמור בזיכרון רק את המסלול מהשורש עד לקודקוד הנוכחי
+ )ואת הילדים המיידיים של כל קודקוד(.
+ בשונה מ-
+\begin_inset Formula $DFS$
+\end_inset
+
+, האלגוריתם יעצור באיטרציה הראשונה בה 
+\begin_inset Formula $d_{max}>d$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+מכאן שסיבוכיות המקום הכוללת תהיה 
+\begin_inset Formula $O\left(b\cdot d\right)$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Section
 שאלה
 \family roman
@@ -361,6 +573,98 @@
 3
 \end_layout
 
+\begin_layout Standard
+נגדיר את קבוצת המצבים שלנו להיות 
+\begin_inset Formula $S=\left\{ 0,1\right\} ^{n}$
+\end_inset
+
+, כלומר וקטורים באורך 
+\begin_inset Formula $n$
+\end_inset
+
+ מעל 
+\begin_inset Formula $\left\{ 0,1\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+נניח שיש לנו מצב מטרה יחיד 
+\begin_inset Formula $G=\left(n,0,0,\dots,0\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+נגדיר את מצב ההתחלה להיות 
+\begin_inset Formula $\left(0,\dots,0\right)$
+\end_inset
+
+, ונגדיר שניתן לעבור ממצב למצב ע"י הגדלה של אחת מכניסות הוקטור ב-
+\begin_inset Formula $1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+במצב כזה, אלגוריתם 
+\begin_inset Formula $DFS$
+\end_inset
+
+ יתקדם לאורך הענף השמאלי ביותר של העץ ויגדיל את הכניסה הראשונה ב-
+\begin_inset Formula $1$
+\end_inset
+
+ בכל מעבר, עד שיגיע ל-
+\begin_inset Formula $G$
+\end_inset
+
+ תוך 
+\begin_inset Formula $O\left(n\right)$
+\end_inset
+
+ צעדים.
+\end_layout
+
+\begin_layout Standard
+לעומתו, אלגוריתם 
+\begin_inset Formula $ID-DFS$
+\end_inset
+
+ תחילה יעשה מעבר מלא על העץ עד לעומק 
+\begin_inset Formula $d_{max}$
+\end_inset
+
+, לאחר מכן יגדיל את 
+\begin_inset Formula $d_{max}$
+\end_inset
+
+ ויעשה מעבר מלא על הקודקודים עד עומק זה, וכן הלאה.
+\end_layout
+
+\begin_layout Standard
+מכיוון שהעץ המתאים כאן הוא בגובה 
+\begin_inset Formula $n$
+\end_inset
+
+, ולכל קודקוד יש 
+\begin_inset Formula $n$
+\end_inset
+
+ ילדים, נקבל ש-
+\begin_inset Formula $ID-DFS$
+\end_inset
+
+ יעבוד בסיבוכיות זמן 
+\begin_inset Formula $O\left(n^{n}\right)$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Section
 שאלה
 \family roman
@@ -388,6 +692,31 @@
 \noun default
 \color inherit
 4
+\end_layout
+
+\begin_layout Standard
+מצורף גרף החיפוש עבור הבעיה.
+\end_layout
+
+\begin_layout Standard
+החיצים המודגשים מציינים את המסלול האופטימלי אל הפתרון.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ai_ps01_q4.png
+	scale 70
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
