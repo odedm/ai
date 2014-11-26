@@ -1496,6 +1496,559 @@ C'>C^{*}+\epsilon\geq h^{*}\left(start\right)+\epsilon\geq h\left(start\right)
 9
 \end_layout
 
+\begin_layout Subsection
+סעיף
+\family roman
+\series bold
+\shape up
+\size large
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\end_layout
+
+\begin_layout Standard
+בהינתן בעיית
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+knapsack
+\lang hebrew
+ 
+\begin_inset Formula $P=\left\langle I,\left(v_{1},\dots,v_{n}\right),\left(w_{1},\dots,w_{n}\right)\right\rangle $
+\end_inset
+
+, נרצה לקבל את התת-קבוצה של 
+\begin_inset Formula $I$
+\end_inset
+
+ הממקסמת את סכום הערכים 
+\begin_inset Formula $v_{j}$
+\end_inset
+
+ תוך שמירה על סכום משקלים קטן מ-
+\begin_inset Formula $W$
+\end_inset
+
+, כלומר:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f\left(P\right)=\underset{J\subseteq I}{argmax}\left\{ V=\sum_{j\in J}v_{j}\ |\ \sum_{j\in J}w_{j}\leq W\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+מצב בבעיה 
+\begin_inset Formula $P$
+\end_inset
+
+ הוא תת-קבוצה 
+\begin_inset Formula $J\subseteq I$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+שני מצבים 
+\begin_inset Formula $J_{1},J_{2}\subseteq I$
+\end_inset
+
+ הם שכנים אם 
+\begin_inset Formula $\left|J_{1}\triangle J_{2}\right|=1$
+\end_inset
+
+, כלומר הם שונים זה מזה בדיוק באיבר אחד - בין אם בתוספת, בגריעה או בהחלפה
+ של איבר - תחת האילוץ לפיו לא ניתן לעבור למצב 
+\begin_inset Formula $J$
+\end_inset
+
+ עבורו 
+\begin_inset Formula $\sum_{j\in J}w_{j}>W$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+המצב ההתחלתי הוא 
+\begin_inset Formula $J_{s}=\emptyset$
+\end_inset
+
+.
+ כדי לבצע
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+gradient ascent
+\lang hebrew
+, נרצה בכל פעם להוסיף איבר בעל "ערך סגולי" מקסימלי.
+ כלומר, אם אנחנו במצב 
+\begin_inset Formula $J$
+\end_inset
+
+, נרצה להוסיף ל-
+\begin_inset Formula $J$
+\end_inset
+
+ איבר 
+\begin_inset Formula $i\in I\backslash J$
+\end_inset
+
+ עבורו 
+\begin_inset Formula $\frac{v_{i}}{w_{i}}$
+\end_inset
+
+ מקסימלי, כך ש-
+\begin_inset Formula $J$
+\end_inset
+
+
+\begin_inset Formula $J\cup\left\{ i\right\} $
+\end_inset
+
+ שומר על אילוץ המשקל.
+\end_layout
+
+\begin_layout Standard
+נחזיר פתרון כאשר לא נותרו פריטים שניתן להוסיף תוך שמירה על אילוץ המשקל.
+\end_layout
+
+\begin_layout Subsection
+סעיף
+\family roman
+\series bold
+\shape up
+\size large
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\end_layout
+
+\begin_layout Standard
+כנראה ש-
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+simulated annealing
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ייתן ביצועים טובים יותר, מפני שבבעיה שמולנו יש בעיה חמורה של נקודות מקסימום
+ מקומי.
+\end_layout
+
+\begin_layout Standard
+נניח, לדוגמה, ש-
+\begin_inset Formula $W=6$
+\end_inset
+
+ ויש לנו בבעיה את הפריטים הבאים:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\left(v_{1},w_{1}\right) & = & \left(4,4\right)\\
+\left(v_{2},w_{2}\right) & = & \left(2.5,3\right)\\
+\left(v_{3},w_{3}\right) & = & \left(2.5,3\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+במצב כזה, לפריט 
+\begin_inset Formula $1$
+\end_inset
+
+ יש את הערך הסגולי הגבוה ביותר )
+\begin_inset Formula $1$
+\end_inset
+
+(, אך אם נכניס אותו, לא יוותר לנו מקום לפריטים נוספים, ונחזיר פתרון שערכו
+ 
+\begin_inset Formula $V=4$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+לעומת זאת, הפתרון האופטימלי הוא פריטים 
+\begin_inset Formula $2,3$
+\end_inset
+
+, שכן משקלם הכולל הוא 
+\begin_inset Formula $6$
+\end_inset
+
+, וערכם הוא 
+\begin_inset Formula $V'=5>V$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+מכאן, שבמצב הנ"ל היינו מרוויחים מביצוע מהלך "שלילי", בו היינו מוציאים את
+ פריט 
+\begin_inset Formula $1$
+\end_inset
+
+, ומכניסים במקומו את אחד מהפריטים 
+\begin_inset Formula $2,3$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+סעיף
+\family roman
+\series bold
+\shape up
+\size large
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\end_layout
+
+\begin_layout Subsubsection
+פוקנציית כשירות
+\end_layout
+
+\begin_layout Standard
+בהינתן מצב 
+\begin_inset Formula $J\subseteq I$
+\end_inset
+
+, פונקציית הכשירות תהיה הערך של הפתרון, תוך שמירה על אילוץ המשקל: 
+\begin_inset Formula 
+\[
+fit\left(J\right)=\begin{cases}
+\sum_{j\in J}v_{j} & \sum_{j\in J}w_{j}\leq W\\
+0 & o.w
+\end{cases}
+\]
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+סלקציה
+\end_layout
+
+\begin_layout Standard
+ניתן לבצע סלקציה בשתי צורות, שאין לי דרך טובה לחזות מי מהן עדיפה:
+\end_layout
+
+\begin_layout Standard
+הראשונה היא 'חיתוך' של המצבים החלשים ביותר - כלומר, להתקדם לאיטרציה הבאה
+ עם, לדוגמה,
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula $80\%$
+\end_inset
+
+ המצבים עבורם 
+\begin_inset Formula $fit$
+\end_inset
+
+ הוא הגדול ביותר.
+\end_layout
+
+\begin_layout Standard
+השניה היא "ראש בראש" - לבחור זוגות רנדומליים של מצבים, ומכל זוג לבחור את
+ המצב עבורו 
+\begin_inset Formula $fit$
+\end_inset
+
+ גבוה יותר.
+\end_layout
+
+\begin_layout Subsubsection
+מוטציה
+\end_layout
+
+\begin_layout Standard
+אם נתייחס למצב 
+\begin_inset Formula $J$
+\end_inset
+
+ בתור וקטור באורך 
+\begin_inset Formula $n$
+\end_inset
+
+ מעל 
+\begin_inset Formula $\left\{ 0,1\right\} $
+\end_inset
+
+, מוטציה תהיה היפוך של כל כניסה בוקטור בסיכוי 
+\begin_inset Formula $\frac{1}{n}$
+\end_inset
+
+.
+ כלומר, בתוחלת, בכל מצב נוריד או נוסיף פריט יחיד.
+\end_layout
+
+\begin_layout Subsubsection
+רקומבינציה
+\end_layout
+
+\begin_layout Standard
+אם נתייחס למצב, שוב, בתור וקטור באורך 
+\begin_inset Formula $n$
+\end_inset
+
+ מעל 
+\begin_inset Formula $\left\{ 0,1\right\} $
+\end_inset
+
+, נוכל לבצע רקומבינציה פשוטה של שני מצבים 
+\begin_inset Formula $J_{1},J_{2}$
+\end_inset
+
+ ע"י בחירת נקודה רנדומלית 
+\begin_inset Formula $k\in\left\{ 1,\dots,n\right\} $
+\end_inset
+
+, ויצירת וקטור חדש 
+\begin_inset Formula $J_{3}$
+\end_inset
+
+ מ-
+\begin_inset Formula $k$
+\end_inset
+
+ הכניסות הראשונות ב-
+\begin_inset Formula $J_{1}$
+\end_inset
+
+ ו-
+\begin_inset Formula $n-k$
+\end_inset
+
+ הכניסות האחרונות ב-
+\begin_inset Formula $J_{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+ניתן להכניס כאן אלמנט הסתברותי נוסף - מכיוון שייתכן שחלק מההורים נותנים
+ תוצאה טובה בעצמם, ניתן להחליט שמבצעים רקומבינציה רק בהסתברות 
+\begin_inset Formula $50\%$
+\end_inset
+
+ )לדוגמה(, ובהסתברות 
+\begin_inset Formula $50\%$
+\end_inset
+
+ משאירים את ההורים הנבחרים כפי שהם.
+\end_layout
+
+\begin_layout Subsection
+סעיף
+\family roman
+\series bold
+\shape up
+\size large
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size normal
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+4
+\end_layout
+
 \begin_layout Section
 שאלה
 \family roman
@@ -1523,6 +2076,127 @@ C'>C^{*}+\epsilon\geq h^{*}\left(start\right)+\epsilon\geq h\left(start\right)
 \noun default
 \color inherit
 10
+\end_layout
+
+\begin_layout Subsection
+סעיף
+\family roman
+\series bold
+\shape up
+\size large
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\end_layout
+
+\begin_layout Standard
+נתאר את הבעיה באופן פורמלי:
+\end_layout
+
+\begin_layout Standard
+נגדיר את קבוצת המשתנים: 
+\begin_inset Formula $\mathcal{X}=\left\{ T_{A},T_{B},T_{C}\right\} $
+\end_inset
+
+.
+ משתנה 
+\begin_inset Formula $T_{i}$
+\end_inset
+
+ מייצג את זמן היציאה של רכבת 
+\begin_inset Formula $i$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+הדומיין הוא אחד לכל המשתנים: 
+\begin_inset Formula $\mathcal{D}=\left\{ 8,9,10\right\} $
+\end_inset
+
+.
+ כלומר, לכל רכבת אנו רוצים להתאים זמן יציאה.
+\end_layout
+
+\begin_layout Standard
+קבוצת האילוצים היא 
+\begin_inset Formula $C=\left\{ R_{T_{A},T_{B}},R_{T_{A},T_{C}},R_{T_{B},T_{C}}\right\} $
+\end_inset
+
+ כאשר:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+R_{T_{A},T_{B}}=\left\{ \right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+C=\left\{ \right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+י
+\end_layout
+
+\begin_layout Standard
+י
+\end_layout
+
+\begin_layout Standard
+י
+\end_layout
+
+\begin_layout Standard
+י
+\end_layout
+
+\begin_layout Standard
+י
+\end_layout
+
+\begin_layout Standard
+י
+\end_layout
+
+\begin_layout Standard
+י
+\end_layout
+
+\begin_layout Standard
+י
 \end_layout
 
 \end_body
