@@ -28,7 +28,7 @@
 \spacing single
 \use_hyperref false
 \papersize default
-\use_geometry false
+\use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
 \use_package cancel 1
@@ -52,6 +52,8 @@
 \shortcut idx
 \color #008000
 \end_index
+\topmargin 2cm
+\bottommargin 2cm
 \secnumdepth -2
 \tocdepth 2
 \paragraph_separation indent
@@ -82,6 +84,7 @@
 \uwave off
 \noun off
 \color none
+ מס'
  
 \family default
 \series default
@@ -156,16 +159,187 @@
 1
 \end_layout
 
+\begin_layout Subsection
+סעיף
+\family roman
+\series bold
+\shape up
+\size large
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\end_layout
+
 \begin_layout Standard
 נשלים את הפורמליזציה של הבעיה.
 \end_layout
 
 \begin_layout Standard
-נמצא את קבוצת המצבים החוקיים: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{S} & = & \left\{ \left(c,m,b\right)\ |\ 0\leq c,m\leq3,\ b\in\left\{ 0,1\right\} \right\} \\
+\mathcal{I} & = & \left\{ \left(3,3,0\right)\right\} \\
+\mathcal{G} & = & \left\{ \left\{ 0,0,1\right\} \right\} \\
+\mathcal{A} & = & \left\{ \left(c,m,b\right)\ :\ \text{move }c\text{ cannibals and  }m\text{ missionaries from bank }b\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-נשים לב כי תמיד ניתן להציב
+נתאר את פונקציית המעברים באופן מלא:
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+העברה מגדת המקור לגדת היעד:
+\end_layout
+
+\begin_layout Standard
+שני מיסיונרים: 
+\begin_inset Formula $\left(c,m,0\ |\ \left(m\geq2\right)\ \land\ \left(m-2=c\lor m=2\right)\right)\rightarrow\left(c,m-2,1\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+שני קניבלים: 
+\begin_inset Formula $\left(c,m,0\ |\ c\geq2\ \land\ \left(m=3\ \lor\ m=0\right)\right)\rightarrow\left(c-2,m,1\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+קניבל ומיסיונר: 
+\begin_inset Formula $\left(c,m,0\ |\ c,m\geq1,\ c=m\right)\rightarrow\left(c-1,m-1,1\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+קניבל אחד: 
+\begin_inset Formula $\left(c,m,0\ |\ \left(c\geq1\right)\ \land\ \left(m=0\lor m=3\right)\right)\rightarrow\left(c-1,m,1\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+מיסיונר אחד: 
+\begin_inset Formula $\left(c,m,0\ |\ \left(m\geq1\right)\ \land\ \left(m-1=c\ \lor\ m=1\right)\right)\rightarrow\left(c,m-1,1\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+העברה מגדת היעד לגדת המקור:
+\end_layout
+
+\begin_layout Standard
+שני מיסיונרים: 
+\begin_inset Formula $\left(c,m,1\ |\ \left(m\leq1\right)\ \land\ \left(m+2=c\ \lor\ m=1\right)\right)\rightarrow\left(c,m+2,0\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+שני קניבלים: 
+\begin_inset Formula $\left(c,m,1\ |\ \left(c\leq1\right)\ \land\ \left(m=0\ \lor\ m=3\right)\right)\rightarrow\left(c+2,m,0\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+קניבל ומיסיונר: 
+\begin_inset Formula $\left(c,m,1\ |\ c\leq m\ \land\ c\leq2\ \land\ m\leq2\right)\rightarrow\left(c+1,m+1,0\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+קניבל אחד: 
+\begin_inset Formula $\left(c,m,1\ |\ c\leq2\ \land\ \left(m=0\ \lor\ m=3\right)\right)\rightarrow\left(c+1,m,0\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+מיסיונר אחד: 
+\begin_inset Formula $\left(c,m,1\ |\ m\leq2\ \land\ \left(m+1=c\ \lor\ m=2\right)\right)\rightarrow\left(c,m+1,0\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+סעיף
+\family roman
+\series bold
+\shape up
+\size large
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\end_layout
+
+\begin_layout Standard
+נמצא פתרון אופטימלי לבעיה באמצעות
 \family roman
 \series medium
 \shape up
@@ -189,118 +363,84 @@
 \uwave default
 \noun default
 \color inherit
-
-\begin_inset Formula $m=0$
-\end_inset
-
-, או באופן סימטרי 
-\begin_inset Formula $m=3$
-\end_inset
-
+\lang english
+UCS
+\lang hebrew
 .
 \end_layout
 
 \begin_layout Standard
-כמו כן, תמיד ניתן להציב 
-\begin_inset Formula $m,c$
-\end_inset
-
- כך ש-
-\begin_inset Formula $m=c$
-\end_inset
-
-.
+מפאת גודל עץ החיפוש, נציג כאן רק את המסלול אל התוצאה )ואת החלופות בכל צעד(:
 \end_layout
 
 \begin_layout Standard
-שאר המצבים בהם 
-\begin_inset Formula $m=1,2$
-\end_inset
-
- אינם חוקיים, מכיוון שהם יקיימו 
-\begin_inset Formula $c>m$
-\end_inset
-
- )יותר קניבלים משליחים מגדת המקור( או 
-\begin_inset Formula $3-c>3-m$
-\end_inset
-
- )יותר קניבלים משליחים בגדת היעד(.
-\end_layout
-
-\begin_layout Standard
-בסה"כ נקבל:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $S=\left\{ \left\langle c,m,b\right\rangle \ |\ 0\leq c,m\leq3,\ b\in\left\{ 0,1\right\} \ \land\ \left(m=0\ \lor\ m=3\ m=c\right)\right\} $
+\begin_inset Formula $ $
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-העברה מגדת המקור לגדת היעד:
-\end_layout
+\align center
+\begin_inset Graphics
+	filename ai_ps01_q01.png
+	scale 60
 
-\begin_layout Standard
-שני שליחים: 
-\begin_inset Formula $\left(c,m,0\ |\ \left(m\geq2\right)\ \land\ \left(m-2\geq c\lor m=2\right)\right)\rightarrow\left(c,m-2,1\right)$
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-שני קניבלים: 
-\begin_inset Formula $\left(c,m,0\ |\ \left(c\geq2\right)\ \land\ \left(3-c+2\leq3-m\right)\right)\rightarrow\left(c-2,m,1\right)$
+\begin_inset Formula $ $
 \end_inset
 
 
 \end_layout
 
+\begin_layout Subsection
+סעיף
+\family roman
+\series bold
+\shape up
+\size large
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\end_layout
+
 \begin_layout Standard
-קניבל ושליח: 
-\begin_inset Formula $\left(c,m,0\ |\ c,m\geq1,\ c\leq m\right)\rightarrow\left(c-1,m-1,1\right)$
+לא ייתכן מצב שבו נשקפת סכנה למיסיונרים - פונקציית המעבר בנויה כך שתמיד מתקדמים
+ אל מצב שבו המסיונרים בשתי הגדות לא נמצאים במיעוט.
+\end_layout
+
+\begin_layout Standard
+מכאן, שלא ייתכן מעבר למצב שבו המיסיונרים נאכלים ע"י הקניבלים.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-קניבל אחד: 
-\begin_inset Formula $\left(c,m,0\ |\ \left(c\geq1\right)\ \land\ \left(m=0\lor m=3\right)\right)\rightarrow\left(c-1,m,1\right)$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-שליח אחד:
-\end_layout
-
-\begin_layout Standard
-העברה מגדת היעד לגדת המקור:
-\end_layout
-
-\begin_layout Standard
-שני שליחים:
-\end_layout
-
-\begin_layout Standard
-שני קניבלים:
-\end_layout
-
-\begin_layout Standard
-קניבל ושליח:
-\end_layout
-
-\begin_layout Standard
-קניבל אחד:
-\end_layout
-
-\begin_layout Standard
-שליח אחד:
 \end_layout
 
 \begin_layout Section
@@ -336,7 +476,7 @@
 \begin_inset Formula $ID-DFS-2$
 \end_inset
 
- הוא שלם: נניח ש-
+ הוא שלם תחת ההנחה שעומק העץ סופי - נניח ש-
 \begin_inset Formula $G$
 \end_inset
 
@@ -373,9 +513,8 @@
 \begin_inset Formula $ID-DFS-2$
 \end_inset
 
- הוא נאות תחת ההנחה שעומק העץ סופי - אם עומק העץ סופי, האלגוריתם תמיד יגיע
- לעומק המקסימלי, יסרוק את כל הקודקודים בעומק זה, וכשלא ימצא פתרון יחזיר
- 
+ הוא נאות תחת ההנחה שעומק העץ סופי - האלגוריתם תמיד יגיע לעומק המקסימלי,
+ יסרוק את כל הקודקודים בעומק זה, וכשלא ימצא פתרון יחזיר 
 \begin_inset Formula $failure$
 \end_inset
 
@@ -506,12 +645,28 @@
 \end_layout
 
 \begin_layout Standard
-סיבוכיות זמן: במקרה הגרוע ביותר יהיה עלינו לעבור על כל הקודקודים בעץ עד
- עומק 
+סיבוכיות זמן: במקרה הגרוע ביותר, 
 \begin_inset Formula $d$
 \end_inset
 
-, ולכן הסיבוכיות היא 
+ הוא מהצורה 
+\begin_inset Formula $2^{k}+1$
+\end_inset
+
+, ואז יהיה עלינו לעבור על כל הקודקודים בעץ עד עומק 
+\begin_inset Formula $d-1$
+\end_inset
+
+ לפני שנתקדם ל-
+\begin_inset Formula $d_{max}$
+\end_inset
+
+ חדש שיאפשר להגיע עד עומק 
+\begin_inset Formula $d$
+\end_inset
+
+.
+ לכן הסיבוכיות היא 
 \begin_inset Formula $O\left(b^{d}\right)$
 \end_inset
 
@@ -702,9 +857,10 @@
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Graphics
 	filename ai_ps01_q4.png
-	scale 70
+	scale 60
 
 \end_inset
 
@@ -956,7 +1112,7 @@
 \begin_inset Formula $A^{*}$
 \end_inset
 
- המשתמש ב-
+ )בחיפוש עץ( המשתמש ב-
 \begin_inset Formula $h$
 \end_inset
 
@@ -976,123 +1132,6 @@
 \series bold
 \bar under
 הוכחה:
-\end_layout
-
-\begin_layout Standard
-באינדוקציה על 
-\begin_inset Formula $k$
-\end_inset
-
-, האורך )בקודקודים( של הפתרון האופטימלי.
-\end_layout
-
-\begin_layout Standard
-אם 
-\begin_inset Formula $k=0$
-\end_inset
-
- אז 
-\begin_inset Formula $s$
-\end_inset
-
- הוא מצב מטרה, לכן 
-\begin_inset Formula $h^{*}\left(s\right)=0$
-\end_inset
-
- ולכן 
-\begin_inset Formula $h\left(s\right)\leq\epsilon$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-נניח נכונות ל-
-\begin_inset Formula $k$
-\end_inset
-
- ונוכיח עבור 
-\begin_inset Formula $k+1$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-נניח ש-
-\begin_inset Formula $s$
-\end_inset
-
- קודקוד בעל שהמרחק האופטימלי שלו מקודקוד יעד הוא 
-\begin_inset Formula $k+1$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-אז עבור 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-h\left(s\right)\leq h^{*}\left(s\right)+\epsilon\leq
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-נניח בשלילה ש-
-\begin_inset Formula $A^{*}$
-\end_inset
-
- המשתמש ב-
-\begin_inset Formula $h$
-\end_inset
-
- מחזיר פתרון 
-\begin_inset Formula $C'$
-\end_inset
-
- עבורו 
-\begin_inset Formula $C'>C^{*}+\epsilon$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $h$
-\end_inset
-
- היא 
-\begin_inset Formula $\epsilon$
-\end_inset
-
--אדמיסבילית אז 
-\begin_inset Formula $h\left(start\right)\leq h^{*}\left(start\right)+\epsilon\leq C^{*}+\epsilon<C'$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-C'>C^{*}+\epsilon\geq h^{*}\left(start\right)+\epsilon\geq h\left(start\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-אז 
 \end_layout
 
 \begin_layout Standard
@@ -1119,10 +1158,67 @@ C'>C^{*}+\epsilon\geq h^{*}\left(start\right)+\epsilon\geq h\left(start\right)
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $h\left(start\right)\leq h^{*}\left(start\right)+\epsilon\leq C^{*}+\epsilon$
+כעת, בריצת 
+\begin_inset Formula $A^{*}$
+\end_inset
+
+ עם 
+\begin_inset Formula $h$
+\end_inset
+
+, עלות ההגעה לקודקוד 
+\begin_inset Formula $s$
+\end_inset
+
+ היא 
+\begin_inset Formula $g\left(s\right)$
+\end_inset
+
+.
+ נוסיף ערך זה לשני הצדדים ונקבל:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $g\left(s\right)+h\left(s\right)\leq g\left(s\right)+h^{*}\left(s\right)+\epsilon$
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+מכיוון ש-
+\begin_inset Formula $h^{*}$
+\end_inset
+
+ אדמיסבילית, תמיד מתקיים 
+\begin_inset Formula $g\left(s\right)+h^{*}\left(s\right)\leq C^{*}$
+\end_inset
+
+, ומכאן 
+\begin_inset Formula $g\left(s\right)+h\left(s\right)\leq C^{*}+\epsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+עבור קודקוד מטרה 
+\begin_inset Formula $v\in G$
+\end_inset
+
+ מתקיים 
+\begin_inset Formula $g\left(v\right)=C$
+\end_inset
+
+, ונתון ש-
+\begin_inset Formula $h\left(v\right)=0$
+\end_inset
+
+, ובסה"כ נקבל 
+\begin_inset Formula $C\leq C^{*}+\epsilon$
+\end_inset
+
+ כנדרש.
 \end_layout
 
 \begin_layout Section
@@ -1385,10 +1481,18 @@ C'>C^{*}+\epsilon\geq h^{*}\left(start\right)+\epsilon\geq h\left(start\right)
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Graphics
 	filename ai_ps01_q8.png
 	scale 70
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
 \end_inset
 
 
@@ -1569,13 +1673,32 @@ knapsack
 \begin_inset Formula $W$
 \end_inset
 
-, כלומר:
+.
+\end_layout
+
+\begin_layout Standard
+נגדיר פונקציית ערך ופונקציית משקל עבור מצבים:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-f\left(P\right)=\underset{J\subseteq I}{argmax}\left\{ V=\sum_{j\in J}v_{j}\ |\ \sum_{j\in J}w_{j}\leq W\right\} 
+\forall J\subseteq I\ :\ val\left(J\right)=\sum_{j\in J}v_{j}\ \ \ weight\left(J\right)=\sum_{j\in J}w_{j}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+וכעת נגדיר את הפונקציה המתארת את דרישות הבעיה:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f\left(P\right)=\underset{J\subseteq I}{argmax}\left\{ V=val\left(J\right)\ |\ weight\left(J\right)\leq W\right\} 
 \]
 
 \end_inset
@@ -1622,7 +1745,14 @@ f\left(P\right)=\underset{J\subseteq I}{argmax}\left\{ V=\sum_{j\in J}v_{j}\ |\ 
 \end_inset
 
 .
- כדי לבצע
+\end_layout
+
+\begin_layout Standard
+נגדיר פונקציית ערך באופן הבא:
+\end_layout
+
+\begin_layout Standard
+כעת כדי לבצע
 \family roman
 \series medium
 \shape up
@@ -1649,36 +1779,38 @@ f\left(P\right)=\underset{J\subseteq I}{argmax}\left\{ V=\sum_{j\in J}v_{j}\ |\ 
 \lang english
 gradient ascent
 \lang hebrew
-, נרצה בכל פעם להוסיף איבר בעל "ערך סגולי" מקסימלי.
- כלומר, אם אנחנו במצב 
+, נרצה לעבור ממצב 
 \begin_inset Formula $J$
 \end_inset
 
-, נרצה להוסיף ל-
+ למצב שכן 
+\begin_inset Formula $K$
+\end_inset
+
+, כך שהערך של 
+\begin_inset Formula $K$
+\end_inset
+
+ גדול מהערך של 
 \begin_inset Formula $J$
 \end_inset
 
- איבר 
-\begin_inset Formula $i\in I\backslash J$
-\end_inset
-
- עבורו 
-\begin_inset Formula $\frac{v_{i}}{w_{i}}$
-\end_inset
-
- מקסימלי, כך ש-
+, וגם גדול מבין כל השכנים של 
 \begin_inset Formula $J$
 \end_inset
 
-
-\begin_inset Formula $J\cup\left\{ i\right\} $
-\end_inset
-
- שומר על אילוץ המשקל.
+, כלומר:
 \end_layout
 
 \begin_layout Standard
-נחזיר פתרון כאשר לא נותרו פריטים שניתן להוסיף תוך שמירה על אילוץ המשקל.
+\begin_inset Formula 
+\[
+val\left(K\right)\geq val\left(J\right)\ \land\ \forall L\in neighbors\left(J\right)\ :\ val\left(K\right)\geq val\left(L\right)
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1874,14 +2006,14 @@ simulated annealing
 \begin_inset Formula 
 \[
 fit\left(J\right)=\begin{cases}
-\sum_{j\in J}v_{j} & \sum_{j\in J}w_{j}\leq W\\
+val\left(J\right) & weight\left(J\right)\leq W\\
 0 & o.w
 \end{cases}
 \]
 
 \end_inset
 
-.
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -1939,32 +2071,7 @@ fit\left(J\right)=\begin{cases}
 \end_layout
 
 \begin_layout Subsubsection
-מוטציה
-\end_layout
-
-\begin_layout Standard
-אם נתייחס למצב 
-\begin_inset Formula $J$
-\end_inset
-
- בתור וקטור באורך 
-\begin_inset Formula $n$
-\end_inset
-
- מעל 
-\begin_inset Formula $\left\{ 0,1\right\} $
-\end_inset
-
-, מוטציה תהיה היפוך של כל כניסה בוקטור בסיכוי 
-\begin_inset Formula $\frac{1}{n}$
-\end_inset
-
-.
- כלומר, בתוחלת, בכל מצב נוריד או נוסיף פריט יחיד.
-\end_layout
-
-\begin_layout Subsubsection
-רקומבינציה
+הכלאה
 \end_layout
 
 \begin_layout Standard
@@ -2008,16 +2115,58 @@ fit\left(J\right)=\begin{cases}
 \end_layout
 
 \begin_layout Standard
+שיפור אפשרי עבור בחירת 
+\begin_inset Formula $k$
+\end_inset
+
+ ע"י מציאת הנקודה הממקסמת את "הערך הסגולי" של הפתרון החדש שנוצר, כלומר הנקודה
+ עבורה 
+\begin_inset Formula $\frac{val\left(J_{3}\right)}{weight\left(J_{3}\right)}$
+\end_inset
+
+ מקסימלי.
+\end_layout
+
+\begin_layout Standard
 ניתן להכניס כאן אלמנט הסתברותי נוסף - מכיוון שייתכן שחלק מההורים נותנים
  תוצאה טובה בעצמם, ניתן להחליט שמבצעים רקומבינציה רק בהסתברות 
-\begin_inset Formula $50\%$
+\begin_inset Formula $75\%$
 \end_inset
 
  )לדוגמה(, ובהסתברות 
-\begin_inset Formula $50\%$
+\begin_inset Formula $25\%$
 \end_inset
 
  משאירים את ההורים הנבחרים כפי שהם.
+\end_layout
+
+\begin_layout Subsubsection
+מוטציה
+\end_layout
+
+\begin_layout Standard
+אם נתייחס למצב 
+\begin_inset Formula $J$
+\end_inset
+
+ בתור וקטור באורך 
+\begin_inset Formula $n$
+\end_inset
+
+ מעל 
+\begin_inset Formula $\left\{ 0,1\right\} $
+\end_inset
+
+, מוטציה תהיה היפוך של כל כניסה בוקטור בסיכוי 
+\begin_inset Formula $\frac{1}{n}$
+\end_inset
+
+.
+ כלומר, בתוחלת, בכל מצב נוריד או נוסיף פריט יחיד.
+\end_layout
+
+\begin_layout Standard
+אם הפעולה גורמת למעבר על אילוץ המשקל, נחזיר את הוקטור למצבו המקורי.
 \end_layout
 
 \begin_layout Subsection
@@ -2047,6 +2196,87 @@ fit\left(J\right)=\begin{cases}
 \noun default
 \color inherit
 4
+\end_layout
+
+\begin_layout Standard
+כמו בסעיף
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\numeric off
+, כנראה שאלגוריתמים גנטיים יתנו כאן תוצאה טובה יותר.
+ 
+\end_layout
+
+\begin_layout Standard
+אלגוריתמי
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+iterative improvement
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ ייטו יותר להיתקע בנקודות מקסימום לוקאלי, בעוד שהאלמנטים הסטוכסטיים באלגוריתם
+ הגנטי ימנעו מצב זה, ויכוונו את סט המצבים, בסיכוי גבוה יותר, לעבר נקודת
+ המקסימום הגלובלית.
+\end_layout
+
+\begin_layout Standard
+עם זאת, ללא אלגוריתם מדויק ובדיקת ביצועים אמיתית, לא ניתן להגריע כאן באופן
+ מובהק.
 \end_layout
 
 \begin_layout Section
@@ -2113,19 +2343,11 @@ fit\left(J\right)=\begin{cases}
 
 \begin_layout Standard
 נגדיר את קבוצת המשתנים: 
-\begin_inset Formula $\mathcal{X}=\left\{ T_{A},T_{B},T_{C}\right\} $
+\begin_inset Formula $\mathcal{X}=\left\{ A,B,C\right\} $
 \end_inset
 
 .
- משתנה 
-\begin_inset Formula $T_{i}$
-\end_inset
-
- מייצג את זמן היציאה של רכבת 
-\begin_inset Formula $i$
-\end_inset
-
-.
+ כל משתנה מייצג את זמן היציאה של הרכבת המתאימה לו.
 \end_layout
 
 \begin_layout Standard
@@ -2134,12 +2356,116 @@ fit\left(J\right)=\begin{cases}
 \end_inset
 
 .
- כלומר, לכל רכבת אנו רוצים להתאים זמן יציאה.
+ כלומר, לכל רכבת אנו רוצים להתאים זמן יציאה -
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+8:00
+\numeric off
+,
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+9:00
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+או
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+10:00
+\numeric off
+.
 \end_layout
 
 \begin_layout Standard
 קבוצת האילוצים היא 
-\begin_inset Formula $C=\left\{ R_{T_{A},T_{B}},R_{T_{A},T_{C}},R_{T_{B},T_{C}}\right\} $
+\begin_inset Formula $\mathcal{C}=\left\{ \left\langle \left\langle A,B\right\rangle ,R_{AB}\right\rangle ,\left\langle \left\langle A,C\right\rangle ,R_{AC}\right\rangle ,\left\langle \left\langle B,C\right\rangle ,R_{BC}\right\rangle \right\} $
 \end_inset
 
  כאשר:
@@ -2147,19 +2473,112 @@ fit\left(J\right)=\begin{cases}
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-R_{T_{A},T_{B}}=\left\{ \right\} 
-\]
+\begin{eqnarray*}
+R_{AB} & = & \left\{ \left(8,10\right),\left(9,8\right),\left(10,8\right),\left(10,9\right)\right\} \\
+R_{AC} & = & \left\{ \left(9,8\right),\left(10,9\right),\left(10,8\right)\right\} \\
+R_{BC} & = & \left\{ \left(8,9\right),\left(8,10\right),\left(9,10\right),\left(10,8\right)\right\} 
+\end{eqnarray*}
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+סעיף
+\family roman
+\series bold
+\shape up
+\size large
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\end_layout
+
+\begin_layout Standard
+גרף האילוצים הוא גרף מלא על שלושת המשתנים:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ai_ps01_q10.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+סעיף
+\family roman
+\series bold
+\shape up
+\size large
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\end_layout
+
+\begin_layout Standard
+בתחילת הריצה, כל הערכים ייתכנו לכל המשתנים:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-C=\left\{ \right\} 
+A:\left\{ 8,9,10\right\} ,\ B:\left\{ 8,9,10\right\} ,\ C:\left\{ 8,9,10\right\} 
 \]
 
 \end_inset
@@ -2168,35 +2587,174 @@ C=\left\{ \right\}
 \end_layout
 
 \begin_layout Standard
-י
+מכיוון שלכל המשתנים אותו מספר ערכים אפשרי, נבחר שרירותית את 
+\begin_inset Formula $A$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-י
+הערך 
+\begin_inset Formula $8$
+\end_inset
+
+ עבור 
+\begin_inset Formula $A$
+\end_inset
+
+ ישאיר את 
+\begin_inset Formula $B$
+\end_inset
+
+ עם ערך אחד אפשרי ואת 
+\begin_inset Formula $C$
+\end_inset
+
+ ללא ערכים אפשריים.
 \end_layout
 
 \begin_layout Standard
-י
+הערך 
+\begin_inset Formula $9$
+\end_inset
+
+ עבור 
+\begin_inset Formula $A$
+\end_inset
+
+ ישאיר את 
+\begin_inset Formula $B$
+\end_inset
+
+ עם ערך אחד אפשרי ואת 
+\begin_inset Formula $C$
+\end_inset
+
+ עם ערך אחד אפשרי.
 \end_layout
 
 \begin_layout Standard
-י
+הערך 
+\begin_inset Formula $10$
+\end_inset
+
+ עבור 
+\begin_inset Formula $A$
+\end_inset
+
+ ישאיר את 
+\begin_inset Formula $B$
+\end_inset
+
+ עם שני ערכים אפשריים ואת 
+\begin_inset Formula $C$
+\end_inset
+
+ עם שני ערכים אפשריים.
 \end_layout
 
 \begin_layout Standard
-י
+לכן נגדיר 
+\begin_inset Formula $A=10$
+\end_inset
+
+, ונתקן את הדומיינים של 
+\begin_inset Formula $B,C$
+\end_inset
+
+ ע"י שימוש ב-
+\lang english
+arc consistency
+\lang hebrew
+:
 \end_layout
 
 \begin_layout Standard
-י
+\begin_inset Formula 
+\[
+A:\left\{ 10\right\} ,\ B:\left\{ 8,9\right\} ,\ C:\left\{ 8,9\right\} 
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-י
+כעת ל-
+\begin_inset Formula $B,C$
+\end_inset
+
+ אותו מספר ערכים אפשרי, אז נבחר שרירותית את 
+\begin_inset Formula $B$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-י
+הערך 
+\begin_inset Formula $8$
+\end_inset
+
+ עבור 
+\begin_inset Formula $B$
+\end_inset
+
+ משאיר את 
+\begin_inset Formula $C$
+\end_inset
+
+ עם שני ערכים אפשריים.
+\end_layout
+
+\begin_layout Standard
+הערך 
+\begin_inset Formula $9$
+\end_inset
+
+ עבור 
+\begin_inset Formula $B$
+\end_inset
+
+ משאיר את 
+\begin_inset Formula $C$
+\end_inset
+
+ עם ערך אפשרי אחד.
+\end_layout
+
+\begin_layout Standard
+לכן נגדיר 
+\begin_inset Formula $B=8$
+\end_inset
+
+, ונתקן את הדומיינים של 
+\begin_inset Formula $A,C$
+\end_inset
+
+ ע"י שימוש ב-
+\lang english
+arc consistency
+\lang hebrew
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A:\left\{ 10\right\} ,\ B:\left\{ 8\right\} ,\ C:\left\{ 9\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+הגענו לנקודה בה לכל משתנה יש ערך אחד אפשרי, כך שכל הערכים עומדים באילוצים,
+ ולכן סיימנו.
 \end_layout
 
 \end_body
