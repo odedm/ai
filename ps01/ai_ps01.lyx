@@ -84,8 +84,7 @@
 \uwave off
 \noun off
 \color none
- מס'
- 
+ מס' 
 \family default
 \series default
 \shape default
@@ -198,7 +197,7 @@
 \mathcal{S} & = & \left\{ \left(c,m,b\right)\ |\ 0\leq c,m\leq3,\ b\in\left\{ 0,1\right\} \right\} \\
 \mathcal{I} & = & \left\{ \left(3,3,0\right)\right\} \\
 \mathcal{G} & = & \left\{ \left\{ 0,0,1\right\} \right\} \\
-\mathcal{A} & = & \left\{ \left(c,m,b\right)\ :\ \text{move }c\text{ cannibals and  }m\text{ missionaries from bank }b\right\} 
+\mathcal{A} & = & \left\{ \left(c,m,b\right)\ :\ \text{move }c\text{ cannibals and }m\text{ missionaries from bank }b\right\} 
 \end{eqnarray*}
 
 \end_inset
@@ -383,7 +382,7 @@ UCS
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename ai_ps01_q01.png
+	filename ai_ps01_q1.png
 	scale 60
 
 \end_inset
