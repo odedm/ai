@@ -35,7 +35,6 @@ import util
 import time
 import search
 import searchAgents
-import kruskal
 
 class GoWestAgent(Agent):
     "An agent that goes West until it can't."
