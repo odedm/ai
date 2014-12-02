@@ -419,11 +419,11 @@ def cornersHeuristic(state, problem):
         # Add the minimal distance to the two remaining corners.
         # Note that this gives an even lower-than-reality result when
         # two corners are diagonal to each other.
-        total += walls.height + walls.width
+        total += walls.height-3 + walls.width-3
          
     elif len(remain) == 4:
         # Add the shortest path around the perimeter of the board.
-        total += min(2 * walls.height + walls.width, walls.height + 2 * walls.width)
+        total += min(2 * (walls.height-3) + walls.width-3, walls.height-3 + 2 * (walls.width-3))
     
     return total
 
