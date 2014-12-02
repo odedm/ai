@@ -24,7 +24,6 @@ class ReflexAgent(Agent):
     headers.
     """
 
-
     def getAction(self, gameState):
         """
         You do not need to change this method, but you're welcome to.
@@ -72,16 +71,22 @@ class ReflexAgent(Agent):
         
         score = 0
         
+        # Try to reach the food
         score += 100 - min([util.manhattanDistance(fp, newPos) for fp in oldFood.asList()])
+        
+        # Try to reach the capsules
         if oldCapsules:
             score += 20 - min([util.manhattanDistance(cp, newPos) for cp in oldCapsules])
-                
+        
+        # Find where the closest ghost is
         (closestGhost, idx) = min([ (util.manhattanDistance(gp, newPos), i) 
                                    for (i, gp) in enumerate( [agent.configuration.pos for agent in newGhostStates] ) ] )
-
+        
+        # If any ghosts are scared, try to eat them 
         if newScaredTimes[idx] > 2:
             score += 200 - closestGhost
-            
+        
+        # If the ghosts are not scared and close by, try to avoid them
         else:        
             if closestGhost <= 0:
                 score -= 150
@@ -147,21 +152,25 @@ class MinimaxAgent(MultiAgentSearchAgent):
         gameState.getNumAgents():
         Returns the total number of agents in the game
         """
-        v, action = self.MaxValue(gameState, 0, retAction=True)
+        action = self.MaxValue(gameState, 0, retAction=True)
         return action
     
     def MaxValue(self, state, depth, retAction=False):
-        
+        """
+        Max player point of view - return the maximum value between
+        the min players' values
+        """
         if state.isWin() or state.isLose():
             return self.evaluationFunction(state)
         
         v = float('-inf')
         agent = 0
         chosenAction = None
-        depth+=1
+        depth += 1
             
         for action in state.getLegalActions(agent):
             if action == Directions.STOP:
+                # ignore STOP direction
                 continue
             succ = state.generateSuccessor(agent, action)
             minval = self.MinValue(succ, depth, agent+1)
@@ -170,12 +179,16 @@ class MinimaxAgent(MultiAgentSearchAgent):
                 chosenAction = action  
         
         if retAction:
-            return v, chosenAction
+            return chosenAction
                 
         return v
 
     def MinValue(self, state, depth, agent):
-
+        """
+        Min player point of view -
+        Last ghost agent returns the minimum value among pacman's moves.
+        Other ghost agents return the minimum after passing control to the next agent.
+        """
         if state.isWin() or state.isLose() or (agent == state.getNumAgents() - 1 and depth == self.depth):
             return self.evaluationFunction(state)
         
@@ -200,10 +213,14 @@ class AlphaBetaAgent(MultiAgentSearchAgent):
         """
         Returns the minimax action using self.depth and self.evaluationFunction
         """
-        v, action = self.alphaBetaMaxValue(gameState, 0, float('-inf'), float('inf'), retAction=True)
+        action = self.alphaBetaMaxValue(gameState, 0, float('-inf'), float('inf'), retAction=True)
         return action
     
     def alphaBetaMaxValue(self, state, depth, alpha, beta, retAction=False):
+        """
+        Max player point of view - return the maximum value between
+        the min players' values, with pruning
+        """
         
         if state.isWin() or state.isLose():
             return self.evaluationFunction(state)
@@ -223,15 +240,21 @@ class AlphaBetaAgent(MultiAgentSearchAgent):
                 chosenAction = action
             alpha = max(alpha, v)  
             if alpha >= beta:
+                # prune
                 return v
         
         if retAction:
-            return v, chosenAction
+            return chosenAction
                 
         return v
 
     def alphaBetaMinValue(self, state, depth, agent, alpha, beta):
-
+        """
+        Min player point of view -
+        Last ghost agent returns the minimum value among pacman's moves.
+        Other ghost agents return the minimum after passing control to the next agent.
+        Uses pruning.
+        """
         if state.isWin() or state.isLose() or (agent == state.getNumAgents() - 1 and depth == self.depth):
             return self.evaluationFunction(state)
         
@@ -247,6 +270,7 @@ class AlphaBetaAgent(MultiAgentSearchAgent):
                 
             beta = min(beta, v)
             if alpha >= beta:
+                # prune
                 return v
         
         return v
@@ -263,10 +287,14 @@ class ExpectimaxAgent(MultiAgentSearchAgent):
         All ghosts should be modeled as choosing uniformly at random from their
         legal moves.
         """
-        v, action = self.expectiMaxValue(gameState, 0, True)
+        action = self.expectiMaxValue(gameState, 0, True)
         return action
     
     def expectiMaxValue(self, state, depth, retAction=False):
+        """
+        Max player point of view - return the maximum value between
+        the min players' values.
+        """
         
         if state.isWin() or state.isLose():
             return self.evaluationFunction(state)
@@ -286,11 +314,16 @@ class ExpectimaxAgent(MultiAgentSearchAgent):
                 chosenAction = action  
         
         if retAction:
-            return v, chosenAction
+            return chosenAction
                 
         return v
 
     def expectiMinValue(self, state, depth, agent):
+        """
+        Min (random) player point of view -
+        Last ghost agent returns the expected value among pacman's moves.
+        Other ghost agents return the expected values after passing control to the next agent.
+        """
 
         if state.isWin() or state.isLose() or (agent == state.getNumAgents() - 1 and depth == self.depth):
             return self.evaluationFunction(state)
@@ -298,6 +331,7 @@ class ExpectimaxAgent(MultiAgentSearchAgent):
         actions = state.getLegalActions(agent)
         
         tot = 0
+        # Calculate expected value among moves
         for action in actions:
             succ = state.generateSuccessor(agent, action)
             if agent == state.getNumAgents() - 1:
@@ -307,90 +341,22 @@ class ExpectimaxAgent(MultiAgentSearchAgent):
         
         return tot
         
-class Kruskal(object):
-    """ This class implements the kruskal algorithm """
-    
-    def __init__(self):
-        self.parent = {}
-        self.rank = {}
-    
-    def make_set(self, vertice):
-        self.parent[vertice] = vertice
-        self.rank[vertice] = 0
-    
-    def find(self, vertice):
-        if self.parent[vertice] != vertice:
-            self.parent[vertice] = self.find(self.parent[vertice])
-        return self.parent[vertice]
-    
-    def union(self, vertice1, vertice2):
-        root1 = self.find(vertice1)
-        root2 = self.find(vertice2)
-        if root1 != root2:
-            if self.rank[root1] > self.rank[root2]:
-                self.parent[root2] = root1
-            else:
-                self.parent[root1] = root2
-                if self.rank[root1] == self.rank[root2]: self.rank[root2] += 1
-    
-    def kruskal(self, graph):
-        """ Returns the MST of the given graph """
-        for vertice in graph.vertices:
-            self.make_set(vertice)
-    
-        mst = set()
-        edges = list(graph.edges)
-        edges.sort()
-        for edge in edges:
-            weight, vertice1, vertice2 = edge
-            if self.find(vertice1) != self.find(vertice2):
-                self.union(vertice1, vertice2)
-                mst.add(edge)
-        return mst
-
-
-class Graph(object):
-    """ Represents an abstract graph.
-    Example graph:
-    graph = {
-        vertices: ['A', 'B', 'C', 'D', 'E', 'F'],
-        edges: set([(1, 'A', 'B'), (5, 'A', 'C') ])
-        }
-    """
-    
-    def __init__(self, vertices):
-        self.vertices = vertices
-        self.edges = set()
-        
-    def add_edge(self, v1, v2, w):
-        if v1 != v2:
-            self.edges.add((w, v1, v2))
-
-
-def get_mst(foodList):
-    """
-    Builds an MST from the food list, using food coordinates
-    as nodes in a fully-connected graph, with Manhattan distances acting as weights
-    between every two nodes.
-    """
-    
-    k = Kruskal()
-    g = Graph(foodList)
-    for pos in foodList:
-        for pos2 in foodList:
-            g.add_edge(pos, pos2, util.manhattanDistance(pos, pos2))
-    
-    return k.kruskal(g)
-
 def betterEvaluationFunction(currentGameState):
     """
     Your extreme ghost-hunting, pellet-nabbing, food-gobbling, unstoppable
     evaluation function (question 5).
 
-    DESCRIPTION: <write something here so we know what you did>
+    This function aimes to give a good evaluation of the current state,
+    in one of two modes: 'scared' and 'not scared'.
+    When we expect scared ghosts, we want to eat the capsule (which is nearby) and then
+    eat the ghosts.
+    When the only relevant objective is food, it gets the larger part of the score.
+    Finishing all the food gets a crazy score, since we will alost always want to eat
+    the last pellet.  
+    the score is a linear combination of the different state features - 
+    food distance, scared timers, capsule distance etc.
     """
     
-    #successorGameState = currentGameState.generatePacmanSuccessor(action)
     pos = currentGameState.getPacmanPosition()    
     food = currentGameState.getFood().asList()
     capsules = currentGameState.getCapsules()
@@ -398,13 +364,12 @@ def betterEvaluationFunction(currentGameState):
     scaredTimes = [ghostState.scaredTimer for ghostState in ghostStates]
     
     score = 0
+    # current state score - good at helping ghost avoidance
     s = 5 * currentGameState.getScore()    
     
     if sum(scaredTimes) > 0:
+        # Go to capsule (if close), eat scared ghosts
         scaredDists = [util.manhattanDistance(gp, pos) for gp in [g.configuration.pos for g in ghostStates if g.scaredTimer > 0]]
-#         if scaredDists:
-#             distanceToClosestScared = min(scaredDists)        
-#         gradeDistScared = 100 -(distanceToClosestScared)
         gradeNumGhosts = 0
         if scaredDists:
             gradeNumGhosts = 100. / len(scaredDists)
@@ -413,23 +378,19 @@ def betterEvaluationFunction(currentGameState):
         score += gradeScared + gradeCapsule + gradeNumGhosts
     
     if food:
+        # Go to food
         gradeFoodNum = 100 * (1. / (len(food)+1) )
         gradeFoodDist = 10 * 1. / (1 + ((sum([util.manhattanDistance(cp, pos) for cp in food]) / float(len(food)+1))))
-        gradeFarFoodDist = 0 * (max([util.manhattanDistance(cp, pos) for cp in food]))
         gradeNearFoodDist = 10 * 1. /(min([util.manhattanDistance(cp, pos) for cp in food]))
         
-        score += s + gradeFoodNum + gradeFoodDist + gradeFarFoodDist + gradeNearFoodDist
+        score += s + gradeFoodNum + gradeFoodDist + gradeNearFoodDist
     
     else:
+        # Always try to eat the last pellet
         score += 10000
 
-#     r = random.random()
-#     if r <= 0.1:
-#         score += 1000 
-      
     return score
-    
-    
+        
 
 # Abbreviation
 better = betterEvaluationFunction
