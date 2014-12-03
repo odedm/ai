@@ -309,7 +309,57 @@
 \end_layout
 
 \begin_layout Standard
-נפשט את המשפטים לעיל:
+נפשט את המשפטים לעיל )כאשר
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+4
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+יפוצל לשניים(:
 \end_layout
 
 \begin_layout Standard
@@ -358,7 +408,20 @@
 \numeric off
 .
  
-\begin_inset Formula $\left(\lnot SA\lor KF\right)\land\left(\lnot KF\lor SA\right)$
+\begin_inset Formula $\lnot KF\lor SA$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+5
+\numeric off
+.
+ 
+\begin_inset Formula $\lnot SA\lor KF$
 \end_inset
 
 
@@ -478,6 +541,76 @@
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+ננסה לבחון האם מתקיים 
+\begin_inset Formula $KF$
+\end_inset
+
+.
+ לכן נוסיף לידע שלנו את:
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+13
+\numeric off
+.
+ 
+\begin_inset Formula $\lnot KF$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+נשתמש ב-
+\lang english
+shortest clause heuristic
+\lang hebrew
+, ונבחר לשלב את נתונים
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1,13
+\numeric off
+, ונקבל:
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+14
+\numeric off
+.
+ 
+\begin_inset Formula $\lnot C\lor HF$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
