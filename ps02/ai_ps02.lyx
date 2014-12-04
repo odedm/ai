@@ -309,7 +309,14 @@
 \end_layout
 
 \begin_layout Standard
-נפשט את המשפטים לעיל )כאשר
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כעת, נפשט את המשפטים לעיל )כאשר
 \family roman
 \series medium
 \shape up
@@ -359,7 +366,18 @@
 \uwave default
 \noun default
 \color inherit
-יפוצל לשניים(:
+יפוצל לשניים(, וניוותר עם דיסיונקציות בלבד.
+ 
+\end_layout
+
+\begin_layout Standard
+לפסוקויות אלה נוסיף את הנתונים לגבי החולה שהגיע.
+ כמו כן, במטרה להגיע למסקנה שיש לחולה בעיה בזרימת הדם, נניח בשלילה שמתקיים
+ 
+\begin_inset Formula $\lnot BFF$
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Standard
@@ -430,7 +448,7 @@
 \begin_layout Standard
 
 \numeric on
-5
+6
 \numeric off
 .
  
@@ -443,28 +461,11 @@
 \begin_layout Standard
 
 \numeric on
-6
-\numeric off
-.
- 
-\begin_inset Formula $\lnot HA\lor NSF\lor HF\lor KF$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-כמו כן, נתון לגבי החולה שהגיע:
-\end_layout
-
-\begin_layout Standard
-
-\numeric on
 7
 \numeric off
 .
  
-\begin_inset Formula $C$
+\begin_inset Formula $\lnot HA\lor NSF\lor HF\lor KF$
 \end_inset
 
 
@@ -477,7 +478,7 @@
 \numeric off
 .
  
-\begin_inset Formula $F$
+\begin_inset Formula $C$
 \end_inset
 
 
@@ -490,7 +491,7 @@
 \numeric off
 .
  
-\begin_inset Formula $BC$
+\begin_inset Formula $F$
 \end_inset
 
 
@@ -503,7 +504,7 @@
 \numeric off
 .
  
-\begin_inset Formula $HBP$
+\begin_inset Formula $BC$
 \end_inset
 
 
@@ -516,7 +517,7 @@
 \numeric off
 .
  
-\begin_inset Formula $HA$
+\begin_inset Formula $HBP$
 \end_inset
 
 
@@ -529,27 +530,10 @@
 \numeric off
 .
  
-\begin_inset Formula $\lnot SA$
+\begin_inset Formula $HA$
 \end_inset
 
- 
-\end_layout
 
-\begin_layout Standard
-האבחנות האפשריות הן: 
-\begin_inset Formula $KF,\ HF,\ NSF,\ BFF$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-ננסה לבחון האם מתקיים 
-\begin_inset Formula $KF$
-\end_inset
-
-.
- לכן נוסיף לידע שלנו את:
 \end_layout
 
 \begin_layout Standard
@@ -559,18 +543,50 @@
 \numeric off
 .
  
-\begin_inset Formula $\lnot KF$
+\begin_inset Formula $\lnot SA$
 \end_inset
 
-.
+ 
 \end_layout
 
 \begin_layout Standard
-נשתמש ב-
+
+\numeric on
+14
+\numeric off
+.
+ 
+\begin_inset Formula $\lnot BFF$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כעת נשתמש ב-
 \lang english
-shortest clause heuristic
+Pure sumbol heuristic
 \lang hebrew
-, ונבחר לשלב את נתונים
+, ונשים לב ש-
+\begin_inset Formula $HF$
+\end_inset
+
+, 
+\begin_inset Formula $LF$
+\end_inset
+
+ ו-
+\begin_inset Formula $NSF$
+\end_inset
+
+ מופיעים תמיד בחיוב, לכן ניתן למחוק את נתונים
 \family roman
 \series medium
 \shape up
@@ -595,9 +611,208 @@ shortest clause heuristic
 \uwave default
 \noun default
 \color inherit
-1,13
+1
 \numeric off
-, ונקבל:
+,
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\numeric off
+,
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\numeric off
+,
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+7
+\numeric off
+.
+ ניוותר עם:
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+4
+\numeric off
+.
+ 
+\begin_inset Formula $\lnot KF\lor SA$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+5
+\numeric off
+.
+ 
+\begin_inset Formula $\lnot SA\lor KF$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+6
+\numeric off
+.
+ 
+\begin_inset Formula $\lnot HBP\lor KF\lor BFF$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+8
+\numeric off
+.
+ 
+\begin_inset Formula $C$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+9
+\numeric off
+.
+ 
+\begin_inset Formula $F$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+10
+\numeric off
+.
+ 
+\begin_inset Formula $BC$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+11
+\numeric off
+.
+ 
+\begin_inset Formula $HBP$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+12
+\numeric off
+.
+ 
+\begin_inset Formula $HA$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+13
+\numeric off
+.
+ 
+\begin_inset Formula $\lnot SA$
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Standard
@@ -607,10 +822,484 @@ shortest clause heuristic
 \numeric off
 .
  
-\begin_inset Formula $\lnot C\lor HF$
+\begin_inset Formula $\lnot BFF$
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+כעת נשתמש ב-
+\lang english
+Shortest clause heuristic
+\lang hebrew
+, נשלב את
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+4
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ו-
+\numeric on
+13
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ונקבל:
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+15
+\numeric off
+.
+ 
+\begin_inset Formula $\lnot KF$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ושוב באותה גישה נשלב את
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+5
+\numeric off
+,
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+15
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ונקבל 
+\begin_inset Formula $\lnot SA$
+\end_inset
+
+, מה שיותיר את 
+\begin_inset Formula $SA$
+\end_inset
+
+ תמיד בסימן שלילה ולכן ניתן )מ-
+\lang english
+Pure sumbol heuristic
+\lang hebrew
+( להתעלם מהמופעים שלו, ונישאר כעת עם:
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+6
+\numeric off
+.
+ 
+\begin_inset Formula $\lnot HBP\lor KF\lor BFF$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+8
+\numeric off
+.
+ 
+\begin_inset Formula $C$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+9
+\numeric off
+.
+ 
+\begin_inset Formula $F$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+10
+\numeric off
+.
+ 
+\begin_inset Formula $BC$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+11
+\numeric off
+.
+ 
+\begin_inset Formula $HBP$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+12
+\numeric off
+.
+ 
+\begin_inset Formula $HA$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+14
+\numeric off
+.
+ 
+\begin_inset Formula $\lnot BFF$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+15
+\numeric off
+.
+ 
+\begin_inset Formula $\lnot KF$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כעת כל שנותר הוא לשלב את
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+6
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+עם
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+11
+\numeric off
+,
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+14
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ו-
+\numeric on
+15
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+והגענו לסתירה:
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+16
+\numeric off
+.
+ 
+\begin_inset Formula $\left\{ \right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+מכאן שבהכרח מתקיים 
+\begin_inset Formula $BFF$
+\end_inset
+
+, כלומר אבחנה אפשרית עבור החולה היא בעיה בזרימת הדם.
 \end_layout
 
 \begin_layout Section
@@ -640,6 +1329,208 @@ shortest clause heuristic
 \noun default
 \color inherit
 2
+\end_layout
+
+\begin_layout Standard
+נתון:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\forall x\left(\left[\forall y\ Animal\left(y\right)\Rightarrow Loves\left(x,y\right)\right]\Rightarrow\left[\exists y\ Loves\left(y,x\right)\right]\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+1
+\numeric off
+.
+ ביטול גרירות:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\forall x\left(\lnot\left[\lnot\forall y\ Animal\left(y\right)\lor Loves\left(x,y\right)\right]\lor\left[\exists y\ Loves\left(y,x\right)\right]\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+2
+\numeric off
+.
+ סידור שלילות:
+\end_layout
+
+\begin_layout Standard
+תחילה נטפל בשלילה הפנימית יותר:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\forall x\left(\lnot\left[\exists y\ \lnot\left(Animal\left(y\right)\lor Loves\left(x,y\right)\right)\right]\lor\left[\exists y\ Loves\left(y,x\right)\right]\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כעת יש לפרוס אותה על פני ה- 
+\begin_inset Formula $\lor$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\forall x\left(\lnot\left[\exists y\ \lnot Animal\left(y\right)\land\lnot Loves\left(x,y\right)\right]\lor\left[\exists y\ Loves\left(y,x\right)\right]\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כעת נטפל בשלילה החיצונית יותר:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\forall x\left(\left[\forall y\ \lnot\left(\lnot Animal\left(y\right)\land\lnot Loves\left(x,y\right)\right)\right]\lor\left[\exists y\ Loves\left(y,x\right)\right]\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+נפרוס על פני 
+\begin_inset Formula $\land$
+\end_inset
+
+ ונטפל בשלילות כפולות:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\forall x\left(\left[\forall y\ Animal\left(y\right)\lor Loves\left(x,y\right)\right]\lor\left[\exists y\ Loves\left(y,x\right)\right]\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+3
+\numeric off
+.
+ שיום משתנים:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\forall x\left(\left[\forall y\ Animal\left(y\right)\lor Loves\left(x,y\right)\right]\lor\left[\exists z\ Loves\left(z,x\right)\right]\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+4
+\numeric off
+.
+ סקולמיזציה:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\forall x\left(\left[\forall y\ Animal\left(y\right)\lor Loves\left(x,y\right)\right]\lor Loves\left(LoverOf(x),x\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+5
+\numeric off
+.
+ ביטול 
+\begin_inset Formula $\forall$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Animal\left(y\right)\lor Loves\left(x,y\right)\lor Loves\left(LoverOf(x),x\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+6
+\numeric off
+.
+ סידור 
+\begin_inset Formula $\lor$
+\end_inset
+
+ על פני 
+\begin_inset Formula $\land$
+\end_inset
+
+ - אין צורך.
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+7
+\numeric off
+.
+ שיום משתנים בפסוקיות שונות - אין צורך, יש לנו פסוקית אחת בלבד.
 \end_layout
 
 \begin_layout Section
@@ -698,6 +1589,34 @@ shortest clause heuristic
 \noun default
 \color inherit
 4
+\end_layout
+
+\begin_layout Standard
+ע
+\end_layout
+
+\begin_layout Standard
+ע
+\end_layout
+
+\begin_layout Standard
+ע
+\end_layout
+
+\begin_layout Standard
+ע
+\end_layout
+
+\begin_layout Standard
+ע
+\end_layout
+
+\begin_layout Standard
+ע
+\end_layout
+
+\begin_layout Standard
+ע
 \end_layout
 
 \end_body
