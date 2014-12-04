@@ -1604,7 +1604,11 @@ MGU
 \end_inset
 
 .
- לא ניתן לאחד אותם.
+ 
+\end_layout
+
+\begin_layout Standard
+לא ניתן לאחד אותם.
  נסביר זאת באמצעות
 \family roman
 \series medium
@@ -1688,11 +1692,116 @@ formation tree
 \end_layout
 
 \begin_layout Standard
+נתון: 
+\begin_inset Formula $Older\left(Father\left(y\right),y\right),\ Older\left(Father\left(x\right),Jerry\right)$
+\end_inset
 
+.
+\end_layout
+
+\begin_layout Standard
+ניתן לאחד אותם באמצעות ההחלפה 
+\begin_inset Formula $\left\{ y/Jerry,\ x/Jerry\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+שימוש באלגוריתם שנלמד בתרגול מניח את ההחלפה 
+\begin_inset Formula $\left\{ y/x,\ x/Jerry\right\} $
+\end_inset
+
+, אך זוהי החלפה אסורה )מפני ש-
+\begin_inset Formula $x$
+\end_inset
+
+ מופיע גם כצד ימני וגם כצד שמאלי(.
 \end_layout
 
 \begin_layout Subsection
 סעיף ד'
+\end_layout
+
+\begin_layout Standard
+נתון: 
+\begin_inset Formula $Knows\left(Father\left(y\right),y\right),\ Knows\left(x,x\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+לא ניתן לאחד אותם.
+ נסביר זאת באמצעות
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+formation tree
+\lang hebrew
+:
+\end_layout
+
+\begin_layout Standard
+תחילה, מגיעים למשתנה 
+\begin_inset Formula $x$
+\end_inset
+
+, שאותו ניתן להחליף ב-
+\begin_inset Formula $Father\left(y\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+בשלב השני, מגיעים למשתנה 
+\begin_inset Formula $y$
+\end_inset
+
+, שמופיע גם תחת 
+\begin_inset Formula $Father$
+\end_inset
+
+ בעץ המקביל, ומצב זה משמעותו כישלון.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ai_ps02_q3d.png
+	scale 70
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
