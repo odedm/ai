@@ -1358,7 +1358,7 @@ Pure sumbol heuristic
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\forall x\left(\lnot\left[\lnot\forall y\ Animal\left(y\right)\lor Loves\left(x,y\right)\right]\lor\left[\exists y\ Loves\left(y,x\right)\right]\right)
+\forall x\left(\lnot\left[\forall y\ \lnot Animal\left(y\right)\lor Loves\left(x,y\right)\right]\lor\left[\exists y\ Loves\left(y,x\right)\right]\right)
 \]
 
 \end_inset
@@ -1376,23 +1376,8 @@ Pure sumbol heuristic
 \end_layout
 
 \begin_layout Standard
-תחילה נטפל בשלילה הפנימית יותר:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\forall x\left(\lnot\left[\exists y\ \lnot\left(Animal\left(y\right)\lor Loves\left(x,y\right)\right)\right]\lor\left[\exists y\ Loves\left(y,x\right)\right]\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-כעת יש לפרוס אותה על פני ה- 
-\begin_inset Formula $\lor$
+תחילה נטפל ב-
+\begin_inset Formula $\forall$
 \end_inset
 
 :
@@ -1401,7 +1386,7 @@ Pure sumbol heuristic
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\forall x\left(\lnot\left[\exists y\ \lnot Animal\left(y\right)\land\lnot Loves\left(x,y\right)\right]\lor\left[\exists y\ Loves\left(y,x\right)\right]\right)
+\forall x\left(\left[\exists y\ \lnot\left(\lnot Animal\left(y\right)\lor Loves\left(x,y\right)\right)\right]\lor\left[\exists y\ Loves\left(y,x\right)\right]\right)
 \]
 
 \end_inset
@@ -1410,32 +1395,17 @@ Pure sumbol heuristic
 \end_layout
 
 \begin_layout Standard
-כעת נטפל בשלילה החיצונית יותר:
+כעת יש לפרוס על פני ה- 
+\begin_inset Formula $\lor$
+\end_inset
+
+ ולטפל בשלילות כפולות:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\forall x\left(\left[\forall y\ \lnot\left(\lnot Animal\left(y\right)\land\lnot Loves\left(x,y\right)\right)\right]\lor\left[\exists y\ Loves\left(y,x\right)\right]\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-נפרוס על פני 
-\begin_inset Formula $\land$
-\end_inset
-
- ונטפל בשלילות כפולות:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\forall x\left(\left[\forall y\ Animal\left(y\right)\lor Loves\left(x,y\right)\right]\lor\left[\exists y\ Loves\left(y,x\right)\right]\right)
+\forall x\left(\left[\exists y\ Animal\left(y\right)\land\lnot Loves\left(x,y\right)\right]\lor\left[\exists y\ Loves\left(y,x\right)\right]\right)
 \]
 
 \end_inset
@@ -1449,13 +1419,13 @@ Pure sumbol heuristic
 3
 \numeric off
 .
- שיום משתנים:
+ טיפול בשמות משתנים:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\forall x\left(\left[\forall y\ Animal\left(y\right)\lor Loves\left(x,y\right)\right]\lor\left[\exists z\ Loves\left(z,x\right)\right]\right)
+\forall x\left(\left[\exists y\ Animal\left(y\right)\land\lnot Loves\left(x,y\right)\right]\lor\left[\exists z\ Loves\left(z,x\right)\right]\right)
 \]
 
 \end_inset
@@ -1475,7 +1445,7 @@ Pure sumbol heuristic
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\forall x\left(\left[\forall y\ Animal\left(y\right)\lor Loves\left(x,y\right)\right]\lor Loves\left(LoverOf(x),x\right)\right)
+\forall x\left(\left[Animal\left(Beloved\left(x\right)\right)\land\lnot Loves\left(x,Beloved\left(x\right)\right)\right]\lor\left[Loves\left(LoverOf\left(x\right),x\right)\right]\right)
 \]
 
 \end_inset
@@ -1499,7 +1469,7 @@ Pure sumbol heuristic
 \begin_layout Standard
 \begin_inset Formula 
 \[
-Animal\left(y\right)\lor Loves\left(x,y\right)\lor Loves\left(LoverOf(x),x\right)
+\left[Animal\left(Beloved\left(x\right)\right)\land\lnot Loves\left(x,Beloved\left(x\right)\right)\right]\lor\left[Loves\left(LoverOf\left(x\right),x\right)\right]
 \]
 
 \end_inset
@@ -1513,15 +1483,22 @@ Animal\left(y\right)\lor Loves\left(x,y\right)\lor Loves\left(LoverOf(x),x\right
 6
 \numeric off
 .
- סידור 
-\begin_inset Formula $\lor$
+ מעבר ל-
+\lang english
+CNF
+\lang hebrew
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[Animal\left(Beloved\left(x\right)\right)\lor Loves\left(LoverOf\left(x\right),x\right)\right]\land\left[\lnot Loves\left(x,Beloved\left(x\right)\right)\lor Loves\left(LoverOf\left(x\right),x\right)\right]
+\]
+
 \end_inset
 
- על פני 
-\begin_inset Formula $\land$
-\end_inset
 
- - אין צורך.
 \end_layout
 
 \begin_layout Standard
@@ -1530,7 +1507,18 @@ Animal\left(y\right)\lor Loves\left(x,y\right)\lor Loves\left(LoverOf(x),x\right
 7
 \numeric off
 .
- שיום משתנים בפסוקיות שונות - אין צורך, יש לנו פסוקית אחת בלבד.
+ שינוי שמות משתנים בפסוקיות שונות:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[Animal\left(Beloved\left(x\right)\right)\lor Loves\left(LoverOf\left(x\right),x\right)\right]\land\left[\lnot Loves\left(y,Beloved\left(y\right)\right)\lor Loves\left(LoverOf\left(y\right),y\right)\right]
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1562,6 +1550,151 @@ Animal\left(y\right)\lor Loves\left(x,y\right)\lor Loves\left(LoverOf(x),x\right
 3
 \end_layout
 
+\begin_layout Subsection
+סעיף א'
+\end_layout
+
+\begin_layout Standard
+נתון: 
+\begin_inset Formula $P\left(A,A,B\right),\ P\left(x,y,z\right)$
+\end_inset
+
+.
+ ה-
+\lang english
+MGU
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+שלהם הוא 
+\begin_inset Formula $\left\{ x/A,\ y/A,\ z/B\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+סעיף ב'
+\end_layout
+
+\begin_layout Standard
+נתון: 
+\begin_inset Formula $Q\left(y,G\left(A,B\right),\ Q\left(G\left(x,x\right),y\right)\right)$
+\end_inset
+
+.
+ לא ניתן לאחד אותם.
+ נסביר זאת באמצעות
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+formation tree
+\lang hebrew
+:
+\end_layout
+
+\begin_layout Standard
+תחילה ניתן לאחד את 
+\begin_inset Formula $y$
+\end_inset
+
+ עם 
+\begin_inset Formula $G\left(x,x\right)$
+\end_inset
+
+.
+ בשלב השני, מתקדמים למשתנה 
+\begin_inset Formula $x$
+\end_inset
+
+ )המסומן בירוק(, ומאחדים אותו עם 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ לבסוף, מגיעים ל-
+\begin_inset Formula $A$
+\end_inset
+
+ כשבעץ השני יש, באותו מקום, 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ לא ניתן לאחד אותם, ולכן אין פתרון.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ai_ps02_q3b.png
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+סעיף ג'
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Subsection
+סעיף ד'
+\end_layout
+
 \begin_layout Section
 שאלה
 \family roman
@@ -1589,6 +1722,30 @@ Animal\left(y\right)\lor Loves\left(x,y\right)\lor Loves\left(LoverOf(x),x\right
 \noun default
 \color inherit
 4
+\end_layout
+
+\begin_layout Standard
+ע
+\end_layout
+
+\begin_layout Standard
+ע
+\end_layout
+
+\begin_layout Standard
+ע
+\end_layout
+
+\begin_layout Standard
+ע
+\end_layout
+
+\begin_layout Standard
+ע
+\end_layout
+
+\begin_layout Standard
+ע
 \end_layout
 
 \begin_layout Standard
