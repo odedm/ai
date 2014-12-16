@@ -20,23 +20,23 @@ class PlanningProblem():
         """
         p = Parser(domain, problem)
         self.actions, self.propositions = p.parseActionsAndPropositions()
-                                                # list of all the actions and list of all the propositions
+        # list of all the actions and list of all the propositions
         self.initialState, self.goal = p.pasreProblem()
-                                                # the initial state and the goal state are lists of propositions
-        self.createNoOps()                                                                                  # creates noOps that are used to propagate existing propositions from one layer to the next
+        # the initial state and the goal state are lists of propositions
+        self.createNoOps() # creates noOps that are used to propagate existing propositions from one layer to the next
         PlanGraphLevel.setActions(self.actions)
         PlanGraphLevel.setProps(self.propositions)
         self._expanded = 0
 
 
     def getStartState(self):
-        "*** YOUR CODE HERE ***"
+        return self.initialState
 
     def isGoalState(self, state):
         """
         Hint: you might want to take a look at goalStateNotInPropLayer function
         """
-        "*** YOUR CODE HERE ***"
+        return not self.goalStateNotInPropLayer(state)
 
     def getSuccessors(self, state):
         """
@@ -50,7 +50,14 @@ class PlanningProblem():
         a.allPrecondsInList(l) returns true if the preconditions of a are in l
         """
         self._expanded += 1
-        "*** YOUR CODE HERE ***"
+        stepCost = 1
+        succs = []
+        for a in self.actions:
+            if a.allPrecondsInList(state):
+                succ = [p for p in state if p not in a.getDelete()]
+                succ += a.getAdd()[:]
+                succs.append((succ, a, stepCost))
+        return succs
 
     def getCostOfActions(self, actions):
         return len(actions)
