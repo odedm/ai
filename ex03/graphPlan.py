@@ -40,10 +40,11 @@ class GraphPlan(object):
         #create first layer of the graph, note it only has a proposition layer which consists of the initial state.
         propLayerInit = PropositionLayer()
         for prop in initState:
-            propLayerInit.addProposition(prop)
+            propLayerInit.addProposition(prop)            
         pgInit = PlanGraphLevel()
         pgInit.setPropositionLayer(propLayerInit)
         self.graph.append(pgInit)
+        
 
         """
         While the layer does not contain all of the propositions in the goal state,
@@ -61,7 +62,10 @@ class GraphPlan(object):
             pgNext = PlanGraphLevel() #create new PlanGraph object
             pgNext.expand(self.graph[level - 1]) #calls the expand function, which you are implementing in the PlanGraph class
             self.graph.append(pgNext) #appending the new level to the plan graph
-
+            
+            #import pdb
+            #pdb.set_trace()
+            
             sizeNoGood = len(self.noGoods[level]) #remember size of nogood table
 
         plan = self.extract(self.graph, self.goal, level) #try to extract a plan since all of the goal propositions are in current graph level, and are not mutex
@@ -198,6 +202,12 @@ class GraphPlan(object):
                 return False
         return True
 
+def propsToNames(props):
+    """
+    Returns a set of the names of the given propositions
+    """
+    return set([p.getName() for p in props])
+
 def independentPair(a1, a2):
     """
     Returns true if the actions are neither have inconsistent effects
@@ -210,7 +220,20 @@ def independentPair(a1, a2):
     a1.isPosEffect(p) returns true is p is in a1.getAdd()
     a1.isNegEffect(p) returns true is p is in a1.getDel()
     """
-    "*** YOUR CODE HERE ***"
+    
+    a1a = propsToNames(a1.getAdd())
+    a2a = propsToNames(a2.getAdd())
+    a1d = propsToNames(a1.getDelete())
+    a2d = propsToNames(a2.getDelete())
+    a1p = propsToNames(a1.getPre())
+    a2p = propsToNames(a2.getPre())
+    
+    # Check inconsistency, check interference 
+    if (a1a.intersection(a2d) or a2a.intersection(a1d)) or (a1p.intersection(a2d) or a2p.intersection(a1d)): 
+        return False
+    
+    return True
+    
 
 if __name__ == '__main__':
     import sys
