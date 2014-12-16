@@ -228,6 +228,9 @@ def independentPair(a1, a2):
     a1p = propsToNames(a1.getPre())
     a2p = propsToNames(a2.getPre())
     
+    if a1 == a2:
+        return True
+    
     # Check inconsistency, check interference 
     if (a1a.intersection(a2d) or a2a.intersection(a1d)) or (a1p.intersection(a2d) or a2p.intersection(a1d)): 
         return False

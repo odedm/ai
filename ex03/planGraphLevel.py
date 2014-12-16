@@ -4,9 +4,6 @@ from util import Pair
 from proposition import Proposition
 from propositionLayer import PropositionLayer
 
-import itertools
-from collections import defaultdict
-
 class PlanGraphLevel(object):
     """
     A class for representing a level in the plan graph.
@@ -65,7 +62,7 @@ class PlanGraphLevel(object):
         allActions = PlanGraphLevel.actions        
         for action in allActions:
             if previousPropositionLayer.allPrecondsInLayer(action) \
-                and True not in [previousPropositionLayer.isMutex(p1, p2) for p1, p2 in exclusiveProduct(action.getPre())]:                
+                and True not in [previousPropositionLayer.isMutex(p1, p2) for p1, p2 in exclusiveProduct(action.getPre(), action.getPre())]:
                 self.actionLayer.addAction(action)
             
     def updateMutexActions(self, previousLayerMutexProposition):
@@ -79,8 +76,10 @@ class PlanGraphLevel(object):
         Note that action is *not* mutex with itself
         """
         currentLayerActions = self.actionLayer.getActions()        
-        actionPairs = exclusiveProduct(currentLayerActions)
-        [self.actionLayer.addMutexActions(a1, a2) for a1, a2 in actionPairs if mutexActions(a1, a2, previousLayerMutexProposition)]
+        actionPairs = exclusiveProduct(currentLayerActions, currentLayerActions)
+        for a1, a2 in actionPairs:
+            if mutexActions(a1, a2, previousLayerMutexProposition):
+                self.actionLayer.addMutexActions(a1, a2)
         
     def updatePropositionLayer(self):
         """
@@ -97,17 +96,17 @@ class PlanGraphLevel(object):
         """
         
         currentLayerActions = self.actionLayer.getActions()
-        props = {}
+        props = dict()
                         
         for a in currentLayerActions:
             for prop in a.getAdd():
                 name = prop.getName()
-                if not name in props:
-                    new_prop = Proposition(name)
-                    props[name] = new_prop
+                if name not in props.keys():
+                    props[name] = Proposition(name)
                 props[name].addProducer(a)
         
-        [self.propositionLayer.addProposition(prop) for prop in props.values()]            
+        for prop in props.values():
+            self.propositionLayer.addProposition(prop)
 
     def updateMutexProposition(self):
         """
@@ -118,7 +117,7 @@ class PlanGraphLevel(object):
         """
         currentLayerPropositions = self.propositionLayer.getPropositions()
         currentLayerMutexActions = self.actionLayer.getMutexActions()
-        for p1, p2 in exclusiveProduct(currentLayerPropositions):
+        for p1, p2 in exclusiveProduct(currentLayerPropositions, currentLayerPropositions):
             if mutexPropositions(p1, p2, currentLayerMutexActions):
                 self.propositionLayer.addMutexProp(p1, p2)
 
@@ -135,8 +134,8 @@ class PlanGraphLevel(object):
         previousLayerMutexProposition = previousPropositionLayer.getMutexProps()
         self.updateActionLayer(previousPropositionLayer)
         self.updateMutexActions(previousLayerMutexProposition)
-        self.updateMutexProposition()
         self.updatePropositionLayer()
+        self.updateMutexProposition()        
 
     def expandWithoutMutex(self, previousLayer):
         """
@@ -164,9 +163,12 @@ def haveCompetingNeeds(a1, a2, mutexProps):
     Hint: for propositions p  and q, the command  "Pair(p, q) in mutexProps"
           returns true if p and q are mutex in the previous level
     """    
-    propPairs = [Pair(p1, p2) for p1, p2 in exclusiveProduct(a1.getPre(), a2.getPre())]
-    return True in [pp in propPairs for pp in mutexProps]
-            
+    propPairs = [Pair(p1, p2) for (p1, p2) in exclusiveProduct(a1.getPre(), a2.getPre())]
+    for pp in mutexProps:
+        if pp in propPairs:
+            return True
+    return False
+
 def mutexPropositions(prop1, prop2, mutexActions):
     """
     complete code for deciding whether two propositions are mutex,
@@ -175,13 +177,15 @@ def mutexPropositions(prop1, prop2, mutexActions):
     You might want to use this function:
     prop1.getProducers() returns the list of all the possible actions in the layer that have prop1 on their add list
     """
-    prodPairs = [Pair(p1, p2) for p1, p2 in exclusiveProduct(prop1.getProducers(), prop2.getProducers())]
-    return True in [pp in prodPairs for pp in mutexActions]
+    prodPairs = [Pair(p1, p2) for (p1, p2) in exclusiveProduct(prop1.getProducers(), prop2.getProducers())]
+    for pp in prodPairs:
+        if pp not in mutexActions:
+            return False
+    return True
 
-def exclusiveProduct(t, s=None):
+def exclusiveProduct(t, s):
     """
     Returns a product of the iterable t with itself,
     Excluding pairs where both elements are equal.
     """
-    if not s: s = t
-    return [(x, y) for x in t for y in s if x != y]
+    return ((x, y) for x in t for y in s if x != y)
