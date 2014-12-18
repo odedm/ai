@@ -53,7 +53,7 @@ class PlanningProblem():
         stepCost = 1
         succs = []
         for a in self.actions:
-            if a.allPrecondsInList(state):
+            if not a.isNoOp() and a.allPrecondsInList(state):
                 succ = [p for p in state if p not in a.getDelete()]
                 succ += a.getAdd()[:]
                 succs.append((succ, a, stepCost))
