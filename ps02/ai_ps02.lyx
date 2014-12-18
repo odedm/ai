@@ -371,7 +371,7 @@
 \end_layout
 
 \begin_layout Standard
-לפסוקויות אלה נוסיף את הנתונים לגבי החולה שהגיע.
+לפסוקיות אלה נוסיף את הנתונים לגבי החולה שהגיע.
  כמו כן, במטרה להגיע למסקנה שיש לחולה בעיה בזרימת הדם, נניח בשלילה שמתקיים
  
 \begin_inset Formula $\lnot BFF$
@@ -1680,7 +1680,7 @@ formation tree
 \begin_layout Standard
 \begin_inset Graphics
 	filename ai_ps02_q3b.png
-	scale 70
+	scale 40
 
 \end_inset
 
@@ -1798,7 +1798,7 @@ formation tree
 \begin_layout Standard
 \begin_inset Graphics
 	filename ai_ps02_q3d.png
-	scale 70
+	scale 40
 
 \end_inset
 
@@ -1834,56 +1834,703 @@ formation tree
 4
 \end_layout
 
-\begin_layout Standard
-ע
+\begin_layout Subsubsection
+סעיף א'
 \end_layout
 
 \begin_layout Standard
-ע
+נציג דוגמה שתראה כי ייתכן מצב בו פסוק ניתן להוכחה באמצעות
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Unit resolution
+\lang hebrew
+, אך לא באמצעות שילוב של
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Unit resolution
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+עם
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Oredered resolution
+\lang hebrew
+.
 \end_layout
 
 \begin_layout Standard
-ע
+נניח שנתון לנו:
 \end_layout
 
 \begin_layout Standard
-ע
+
+\numeric on
+1
+\numeric off
+.
+ 
+\begin_inset Formula $p\lor q$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-ע
+
+\numeric on
+2
+\numeric off
+.
+ 
+\begin_inset Formula $r\lor q$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-ע
+
+\numeric on
+3
+\numeric off
+.
+ 
+\begin_inset Formula $\lnot p\lor\lnot r$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-ע
+ואנו רוצים להוכיח 
+\begin_inset Formula $q$
+\end_inset
+
+, אז נוסיף לרשימה:
 \end_layout
 
 \begin_layout Standard
-ע
+
+\numeric on
+4
+\numeric off
+.
+ 
+\begin_inset Formula $\lnot q$
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Standard
-ע
+קל להגיע לסתירה תוך שימוש ב-
+\lang english
+Unit resolution
+\lang hebrew
+:
 \end_layout
 
 \begin_layout Standard
-ע
+
+\numeric on
+5
+\numeric off
+.
+ )
+\numeric on
+1,4
+\numeric off
+( 
+\begin_inset Formula $p$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-ע
+
+\numeric on
+6
+\numeric off
+.
+ )
+\numeric on
+2,4
+\numeric off
+( 
+\begin_inset Formula $r$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-ע
+
+\numeric on
+7
+\numeric off
+.
+ )
+\numeric on
+3,6
+\numeric off
+( 
+\begin_inset Formula $\lnot p$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-ע
+
+\numeric on
+8
+\numeric off
+.
+ )
+\numeric on
+5,7
+\numeric off
+( 
+\begin_inset Formula $\left\{ \right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+מצד שני, ניתן לראות ששילוב של
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Ordered resolution
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ לא יאפשר לנו להגיע לסתירה -
+\end_layout
+
+\begin_layout Standard
+הפסוקית היחידה באורך
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+היא פסוקית
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+4
+\numeric off
+, אבל לא ניתן לשלב אותה עם פסוקיות
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+,
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+מפני שבשתיהן 
+\begin_inset Formula $q$
+\end_inset
+
+ הוא הליטרל השני.
+\end_layout
+
+\begin_layout Standard
+כך, למעשה, לא ניתן לסצע אפילו צעד הוכחה יחיד.
+\end_layout
+
+\begin_layout Subsubsection
+סעיף ב'
+\end_layout
+
+\begin_layout Standard
+אותה דוגמה כמו בסעיף א' תדגים פה ששילוב
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Ordered resolution
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+עם
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Set of Support
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ היא אסטרטגיה לא-שלמה:
+\end_layout
+
+\begin_layout Standard
+ה-
+\lang english
+Set of Support
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+שלנו יהיה 
+\begin_inset Formula $\left\{ \lnot q\right\} $
+\end_inset
+
+, אבל כמו בסעיף א' לא ניתן לשלב את 
+\begin_inset Formula $\lnot q$
+\end_inset
+
+ עם פסוקיות
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+או
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+4
+\numeric off
+, כיוון שבשתיהן 
+\begin_inset Formula $q$
+\end_inset
+
+ הוא הליטרל השני.
+\end_layout
+
+\begin_layout Standard
+כלומר, לא ניתן להוכיח 
+\begin_inset Formula $q$
+\end_inset
+
+ מתוך הנתונים, למרות ש-
+\begin_inset Formula $q$
+\end_inset
+
+ הוא מסקנה נכונה מהם )כפי שהראינו קודם(.
+\end_layout
+
+\begin_layout Standard
+מכאן שהשיטה הנ"ל אינה שלמה.
 \end_layout
 
 \end_body
