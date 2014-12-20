@@ -338,24 +338,57 @@ on\_b_{i}\in\left\{ Free\right\} \cup\left[1,n\right]\backslash\left\{ i\right\}
 \end_inset
 
  הוא 
-\begin_inset Formula $L\cup PBB\cup PBT$
+\begin_inset Formula $LBT\cup PBT\cup PBB\cup LBB$
 \end_inset
 
-
+, כאשר:
 \end_layout
 
 \begin_layout Standard
-כאשר 
-\begin_inset Formula $L=\left\{ L_{1},\dots,L_{n}\right\} $
+\begin_inset Formula $LBT$
 \end_inset
 
- הוא סט פעולות ההרמה:
+ מכיל את כל הפעולות 
+\begin_inset Formula $LBT_{i}$
+\end_inset
+
+, שמשמען הרמת בלוק 
+\begin_inset Formula $i$
+\end_inset
+
+ מהשולחן:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\forall i\in\left[1,n\right]\ L_{i}=\left\langle Pre=\left\langle on\_b_{i}=Free,\ C=Free\right\rangle ,\ Eff=\left\langle C=i,\ t_{i}=false\right\rangle \right\rangle 
+\forall i\in\left[1,n\right]\ LBT_{i}=\left\langle Pre=\left\langle t_{i}=true,\ on\_b_{i}=Free,\ C=Free\right\rangle ,\ Eff=\left\langle t_{i}=false,\ C=i\right\rangle \right\rangle 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $PBT$
+\end_inset
+
+ מכיל את כל הפעולות 
+\begin_inset Formula $PBT_{i}$
+\end_inset
+
+, שמשמען הנחת בלוק 
+\begin_inset Formula $i$
+\end_inset
+
+ על השולחן:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\forall i\in\left[1,n\right]\ PBT_{i}=\left\langle Pre=\left\langle C=i\right\rangle ,\ \left\langle Eff=\left\langle t_{i}=true,\ C=Free\right\rangle \right\rangle \right\rangle 
 \]
 
 \end_inset
@@ -406,24 +439,36 @@ on\_b_{i}\in\left\{ Free\right\} \cup\left[1,n\right]\backslash\left\{ i\right\}
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $PBT$
+\begin_inset Formula $LBB$
 \end_inset
 
  מכיל את כל הפעולות 
-\begin_inset Formula $PBT_{i}$
+\begin_inset Formula $LBB_{ij}$
 \end_inset
 
-, שמשמען הנחת בלוק 
+ )לכל 
 \begin_inset Formula $i$
 \end_inset
 
- על השולחן:
+ ולכל 
+\begin_inset Formula $j$
+\end_inset
+
+ שונים(, שמשמען הרמת בלוק 
+\begin_inset Formula $i$
+\end_inset
+
+ שמונח על בלוק 
+\begin_inset Formula $j$
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\forall i\in\left[1,n\right]\ PBT_{i}=\left\langle Pre=\left\langle C=i\right\rangle ,\ \left\langle Eff=\left\langle t_{i}=true,\ C=Free\right\rangle \right\rangle \right\rangle 
+\forall i\neq j\in\left[1,n\right]\ LBB_{ij}=\left\langle Pre=\left\langle on\_b_{i}=Free,\ on\_b_{j}=i,\ C=Free\right\rangle ,\ Eff=\left\langle on\_b_{j}=Free,\ C=i\right\rangle \right\rangle 
 \]
 
 \end_inset
