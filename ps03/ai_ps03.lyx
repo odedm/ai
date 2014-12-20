@@ -55,8 +55,9 @@
 \shortcut idx
 \color #008000
 \end_index
-\leftmargin 1cm
+\leftmargin 2cm
 \topmargin 1.5cm
+\rightmargin 2cm
 \secnumdepth -2
 \tocdepth 2
 \paragraph_separation indent
@@ -219,7 +220,7 @@ V=\left\{ C\right\} \cup\left\{ on\_b_{1},\dots,on\_b_{n}\right\} \cup\left\{ t_
 \begin_inset Formula $C$
 \end_inset
 
-הוא משתנה המייצג את המנוף, ויכול לקבל ערכים מהקבוצה 
+ הוא משתנה המייצג את המנוף, ויכול לקבל ערכים מהקבוצה 
 \begin_inset Formula $\left[1,n\right]\cup\left\{ Free\right\} $
 \end_inset
 
@@ -271,7 +272,7 @@ on\_b_{i}\in\left\{ Free\right\} \cup\left[1,n\right]\backslash\left\{ i\right\}
 \begin_inset Formula $Free$
 \end_inset
 
-מייצג שאין כלום מעל הבלוק.
+ מייצג שאין כלום מעל הבלוק.
 \end_layout
 
 \end_deeper
@@ -728,7 +729,7 @@ interference
 \end_layout
 
 \begin_layout Standard
-טטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטט
+??????
 \end_layout
 
 \begin_layout Standard
@@ -916,7 +917,7 @@ Level-Sum
 \end_layout
 
 \begin_layout Standard
-טטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטט
+?????
 \end_layout
 
 \begin_layout Section
@@ -1603,7 +1604,7 @@ Unit Propagation
 \uwave default
 \noun default
 \color inherit
-פסוקיות זרות, שכל אחת מהן מכילה בדיוק משתנה אחד מבין השישה שהגדרנו.
+פסוקיות זרות בזוגות, שכל אחת מהן מכילה בדיוק משתנה אחד מבין השישה שהגדרנו.
  
 \end_layout
 
