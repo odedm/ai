@@ -55,6 +55,7 @@
 \shortcut idx
 \color #008000
 \end_index
+\leftmargin 1cm
 \topmargin 1.5cm
 \secnumdepth -2
 \tocdepth 2
@@ -505,6 +506,419 @@ on\_b_{i}\in\left\{ Free\right\} \cup\left[1,n\right]\backslash\left\{ i\right\}
 2
 \end_layout
 
+\begin_layout Subsection
+סעיף א'
+\end_layout
+
+\begin_layout Standard
+נתאר את האופרטורים בשפת
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+STRIPS
+\lang hebrew
+:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\begin_inset Formula 
+\begin{eqnarray*}
+\text{Operator} & : & Drive\left(J\right)\\
+\text{Pre} & : & At\left(Car,DS\right),\ InIgnition\left(Key\right)\\
+\text{Add} & : & At\left(Car,J\right)\begin{aligned}\end{aligned}
+\\
+\text{Delete} & : & At\left(Car,DS\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Formula 
+\begin{eqnarray*}
+\text{Operator} & : & Drive\left(DS\right)\\
+\text{Pre} & : & At\left(Car,J\right),\ InIgnition\left(Key\right)\\
+\text{Add} & : & At\left(Car,DS\right)\\
+\text{Delete} & : & At\left(Car,J\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Formula 
+\begin{eqnarray*}
+\text{Operator} & : & Insert\left(Key\right)\\
+\text{Pre} & : & InPocket\left(Key\right)\\
+\text{Add} & : & InIgnition\left(Key\right)\\
+\text{Delete} & : & InPocket\left(Key\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Formula 
+\begin{eqnarray*}
+\text{Operator} & : & Remove\left(Key\right)\\
+\text{Pre} & : & InIgnition\left(Key\right)\\
+\text{Add} & : & InPocket\left(Key\right)\\
+\text{Delete} & : & InIgnition\left(Key\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+סעיף ב'
+\end_layout
+
+\begin_layout Standard
+נציג את גרף התכנון המתאים לבעיה.
+ הפעולות הדרושות להגעה למצב המטרה מסומנות בירוק, וההיגדים שמתקיימים בפועל
+ כאשר מבצעים אותן מסומנים בירוק בהיר.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ai_ps03_q2b.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+נשים לב שבשכבה 
+\begin_inset Formula $P_{2}$
+\end_inset
+
+ נמצאים שני היגדי המטרה 
+\begin_inset Formula $InPocket\left(Key\right),\ At\left(Car,DS\right)$
+\end_inset
+
+, אך הם במצב של
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Mutex
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+- כל זוגות הפעולות הדרושים כדי להגיע אליהן )כלומר, הזוג
+\begin_inset Formula $Remove\left(Key\right),\ Drive\left(DS\right)$
+\end_inset
+
+( הם במצב של 
+\lang english
+interference
+\lang hebrew
+, שכן הפעולה 
+\begin_inset Formula $Remove\left(Key\right)$
+\end_inset
+
+ מוחקת את 
+\begin_inset Formula $InIgnition\left(Key\right)$
+\end_inset
+
+, שהוא תנאי מקדים של 
+\begin_inset Formula $Drive\left(DS\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+טטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטט
+\end_layout
+
+\begin_layout Standard
+נביט בגרף ונבדוק מה השכבה הראשונה שבה מופיע כל היגד מטרה:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $InPocket\left(Key\right)$
+\end_inset
+
+ מופיע לראשונה בשכבה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\numeric off
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $At\left(Car,DS\right)$
+\end_inset
+
+ מופיע לראשונה בשכבה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\numeric off
+.
+\end_layout
+
+\begin_layout Standard
+לכן, במצב ההתחלתי, ערכה של יוריסטיקת
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Max-Level
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+הוא 
+\begin_inset Formula $Max\left(0,2\right)=2$
+\end_inset
+
+, וערכה של יוריסטיקת
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Level-Sum
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+הוא 
+\begin_inset Formula $0+2=2$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+טטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטטט
+\end_layout
+
 \begin_layout Section
 שאלה
 \family roman
@@ -532,6 +946,730 @@ on\_b_{i}\in\left\{ Free\right\} \cup\left[1,n\right]\backslash\left\{ i\right\}
 \noun default
 \color inherit
 3
+\end_layout
+
+\begin_layout Subsection
+סעיף א'
+\end_layout
+
+\begin_layout Standard
+נקודד את הבעיה באופן לינארי, כאשר 
+\begin_inset Formula $b=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+המשתנים שנקבל מ-
+\begin_inset Formula $P$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+at_{0}\left(r1,l1\right),\ at_{0}\left(r1,l2\right),\ at_{1}\left(r1,l1\right),\ at_{1}\left(r1,l2\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+המשתנים שנקבל מ-
+\begin_inset Formula $A$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+move_{0}\left(r1,l1,l2\right),\ move_{0}\left(r1,l2,l1\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Initial State Clauses:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\{ at_{0}\left(r1,l1\right)\right\} ,\ \left\{ \lnot at_{0}\left(r1,l2\right)\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Goal Clauses:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\{ at_{1}\left(r1,l2\right)\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Action Precondition Clauses:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\{ \lnot move_{0}\left(r1,l1,l2\right),at_{0}\left(r1,l1\right)\right\} ,\ \left\{ \lnot move_{0}\left(r1,l2,l1\right),at_{0}\left(r1,l2\right)\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Action Effect Clauses:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+ & \left\{ \lnot move_{0}\left(r1,l1,l2\right),at_{1}\left(r1,l2\right)\right\} ,\ \left\{ \lnot move_{0}\left(r1,l2,l1\right),at_{1}\left(r1,l1\right)\right\} \\
+ & \left\{ \lnot move_{0}\left(r1,l1,l2\right),\lnot at_{1}\left(r1,l1\right)\right\} ,\ \left\{ \lnot move_{0}\left(r1,l2,l1\right),\lnot at_{1}\left(r1,l2\right)\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Positive Frame Axioms:
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Formula 
+\[
+\left\{ \lnot move_{0}\left(r1,l1,l2\right),\lnot at_{0}\left(r1,l2\right),at_{1}\left(r1,l2\right)\right\} ,\ \left\{ \lnot move_{0}\left(r1,l2,l1\right),\lnot at_{0}\left(r1,l1\right),at_{1}\left(r1,l1\right)\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Negative Frame Axioms:
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Formula 
+\[
+\left\{ \lnot move_{0}\left(r1,l1,l2\right),at_{0}\left(r1,l1\right),\lnot at_{1}\left(r1,l1\right)\right\} ,\ \left\{ \lnot move_{0}\left(r1,l2,l1\right),at_{0}\left(r1,l2\right),\lnot at_{1}\left(r1,l2\right)\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Linearity (Exclusion) Constraints:
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Formula 
+\begin{eqnarray*}
+ & \left\{ \lnot move_{0}\left(r1,l1,l2\right),\lnot move_{0}\left(r1,l2,l1\right)\right\} ,\ \left\{ move_{0}\left(r1,l1,l2\right),move_{0}\left(r1,l2,l1\right)\right\} \\
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+סעיף ב'
+\end_layout
+
+\begin_layout Standard
+לשם הנוחות, נקצר את שמות המשתנים.
+ 
+\end_layout
+
+\begin_layout Standard
+נפעיל את אלגוריתם
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+DPLL
+\lang hebrew
+.
+\end_layout
+
+\begin_layout Standard
+הפסוקיות שיש לנו הן:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+ & \left\{ a_{0}1\right\} ,\ \left\{ \lnot a_{0}2\right\} \\
+ & \left\{ a_{1}2\right\} \\
+ & \left\{ \lnot m12,a{}_{0}1\right\} ,\ \left\{ \lnot m21,a{}_{0}2\right\} \\
+ & \left\{ \lnot m12,a{}_{1}2\right\} ,\ \left\{ \lnot m21,a{}_{1}1\right\} \\
+ & \left\{ \lnot m12,\lnot a{}_{1}1\right\} ,\ \left\{ \lnot m21,\lnot a{}_{1}2\right\} \\
+ & \left\{ \lnot m12,\lnot a{}_{0}2,a{}_{1}2\right\} ,\ \left\{ \lnot m21,\lnot a{}_{0}1,a{}_{1}1\right\} \\
+ & \left\{ \lnot m12,a{}_{0}1,\lnot a{}_{1}1\right\} ,\ \left\{ \lnot m21,a{}_{0}2,\lnot a{}_{1}2\right\} \\
+ & \left\{ \lnot m12,\lnot m21\right\} ,\ \left\{ m12,m21\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+נבצע
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Unit Propagation
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+על 
+\begin_inset Formula $\left\{ a_{0}1\right\} $
+\end_inset
+
+, וניוותר עם:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+ & \left\{ a_{0}1\right\} ,\ \left\{ \lnot a_{0}2\right\} \\
+ & \left\{ a_{1}2\right\} \\
+ & \left\{ \lnot m21,a{}_{0}2\right\} \\
+ & \left\{ \lnot m12,a{}_{1}2\right\} ,\ \left\{ \lnot m21,a{}_{1}1\right\} \\
+ & \left\{ \lnot m12,\lnot a{}_{1}1\right\} ,\ \left\{ \lnot m21,\lnot a{}_{1}2\right\} \\
+ & \left\{ \lnot m12,\lnot a{}_{0}2,a{}_{1}2\right\} ,\ \left\{ \lnot m21,a{}_{1}1\right\} \\
+ & \left\{ \lnot m21,a{}_{0}2,\lnot a{}_{1}2\right\} \\
+ & \left\{ \lnot m12,\lnot m21\right\} ,\ \left\{ m12,m21\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+נבצע
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Unit Propagation
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+על 
+\begin_inset Formula $\left\{ \lnot a_{0}2\right\} $
+\end_inset
+
+, וניוותר עם:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+ & \left\{ a_{0}1\right\} ,\ \left\{ \lnot a_{0}2\right\} \\
+ & \left\{ a_{1}2\right\} \\
+ & \left\{ \lnot m21\right\} \\
+ & \left\{ \lnot m12,a{}_{1}2\right\} ,\ \left\{ \lnot m21,a{}_{1}1\right\} \\
+ & \left\{ \lnot m12,\lnot a{}_{1}1\right\} ,\ \left\{ \lnot m21,\lnot a{}_{1}2\right\} \\
+ & \left\{ \lnot m21,a{}_{1}1\right\} \\
+ & \left\{ \lnot m21,\lnot a{}_{1}2\right\} \\
+ & \left\{ \lnot m12,\lnot m21\right\} ,\ \left\{ m12,m21\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+נבצע
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Unit Propagation
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+על 
+\begin_inset Formula $\left\{ a_{1}2\right\} $
+\end_inset
+
+, וניוותר עם:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+ & \left\{ a_{0}1\right\} ,\ \left\{ \lnot a_{0}2\right\} \\
+ & \left\{ a_{1}2\right\} \\
+ & \left\{ \lnot m21\right\} \\
+ & \left\{ \lnot m21,a{}_{1}1\right\} \\
+ & \left\{ \lnot m12,\lnot a{}_{1}1\right\} ,\ \left\{ \lnot m21\right\} \\
+ & \left\{ \lnot m21,a{}_{1}1\right\} \\
+ & \left\{ \lnot m21\right\} \\
+ & \left\{ \lnot m12,\lnot m21\right\} ,\ \left\{ m12,m21\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+נבצע
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Unit Propagation
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+על 
+\begin_inset Formula $\left\{ \lnot m21\right\} $
+\end_inset
+
+, וניוותר עם:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\{ a_{0}1\right\} ,\ \left\{ \lnot a_{0}2\right\} ,\ \left\{ a_{1}2\right\} ,\ \left\{ \lnot m21\right\} ,\ \left\{ \lnot m12,\lnot a{}_{1}1\right\} ,\ \left\{ m12\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+נבצע
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Unit Propagation
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+על 
+\begin_inset Formula $\left\{ m12\right\} $
+\end_inset
+
+, וניוותר עם:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\{ a_{0}1\right\} ,\ \left\{ \lnot a_{0}2\right\} ,\ \left\{ a_{1}2\right\} ,\ \left\{ \lnot m21\right\} ,\ \left\{ \lnot a{}_{1}1\right\} ,\ \left\{ m12\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כעת, נותרנו עם
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+6
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+פסוקיות זרות, שכל אחת מהן מכילה בדיוק משתנה אחד מבין השישה שהגדרנו.
+ 
+\end_layout
+
+\begin_layout Standard
+האלגוריתם יבצע רצף של
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+6
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+השמות, כל אחת למשתנה אחר, ויגיע להשמה המספקת:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+a_{0}1=T,\ a_{0}2=F,\ a_{1}1=F,\ a_{1}2=T,\ m12=T,\ m21=F
+\]
+
+\end_inset
+
+
 \end_layout
 
 \end_body
