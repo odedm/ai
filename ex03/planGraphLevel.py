@@ -135,7 +135,7 @@ class PlanGraphLevel(object):
         self.updateActionLayer(previousPropositionLayer)
         self.updateMutexActions(previousLayerMutexProposition)
         self.updatePropositionLayer()
-        self.updateMutexProposition()        
+        self.updateMutexProposition()
 
     def expandWithoutMutex(self, previousLayer):
         """
@@ -177,11 +177,18 @@ def mutexPropositions(prop1, prop2, mutexActions):
     You might want to use this function:
     prop1.getProducers() returns the list of all the possible actions in the layer that have prop1 on their add list
     """
-    prodPairs = [Pair(p1, p2) for (p1, p2) in exclusiveProduct(prop1.getProducers(), prop2.getProducers())]
+    prodPairs = [Pair(p1, p2) for (p1, p2) in product(prop1.getProducers(), prop2.getProducers())]
     for pp in prodPairs:
         if pp not in mutexActions:
             return False
     return True
+
+def product(t, s):
+    """
+    Returns a product of the iterable t with itself,
+    Excluding pairs where both elements are equal.
+    """
+    return ((x, y) for x in t for y in s)
 
 def exclusiveProduct(t, s):
     """
