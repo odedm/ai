@@ -192,7 +192,6 @@ def product(t, s):
 
 def exclusiveProduct(t, s):
     """
-    Returns a product of the iterable t with itself,
-    Excluding pairs where both elements are equal.
+    Returns a product of the iterable t with itself.
     """
     return ((x, y) for x in t for y in s if x != y)

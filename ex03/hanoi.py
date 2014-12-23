@@ -1,4 +1,7 @@
 class Action(object):
+    """
+    Represents a STRIPS language action.
+    """
     
     def __init__(self, my_num, from_peg, from_num, to_peg, to_num):
         self.name = "Move-%s-From-%s-On-%s-To-%s-On-%s" %(my_num, from_peg, from_num, to_peg, to_num)
@@ -39,6 +42,7 @@ def createDomainFile(domainFileName, n):
     propositions = []
     actions = []
     
+    # Create propositions
     for num1 in numbers:
         propositions.append("Top-%s" %num1)        
         for peg in pegs:
@@ -47,12 +51,13 @@ def createDomainFile(domainFileName, n):
             propositions.append('On-%s-%s' %(num1, num2))
     propositions.extend(["Empty-%s" %peg for peg in pegs])
     
-    
+    # Create actions for biggest diskit
     for from_peg in pegs:
         for to_peg in pegs:
             if from_peg != to_peg:
                 actions.append(Action(n-1, from_peg, "Empty", to_peg, "Empty"))
     
+    # Create actions for rest of diskiot
     for my_num in numbers[:-1]:
         for from_peg in pegs:
             for to_peg in pegs:
@@ -62,22 +67,23 @@ def createDomainFile(domainFileName, n):
                             if from_num != to_num or from_num == "Empty":
                                 actions.append(Action(my_num, from_peg, from_num, to_peg, to_num))
                     
+    # Write to file
     domainFile.write('Propositions:\n' + ' '.join(propositions) 
                      + "\nActions:\n" + '\n'.join([str(a) for a in actions]))
     domainFile.close()
 
-
 def createProblemFile(problemFileName, n):
     numbers = list(range(n)) # [0,...,n-1]
-    #pegs = ['a','b', 'c']
     problemFile = open(problemFileName, 'w') #use problemFile.write(str) to write to problemFile
     
+    # Create initial state
     init_props = ["Top-0", "a-0", "On-%s-Empty" %(n-1), "Empty-b", "Empty-c"]
     
     for num in numbers[1:]:
         init_props.append("a-%s" %num)
         init_props.append("On-%s-%s" %(num-1, num))
     
+    # Create goal state
     goal_props = ["Top-0", "c-0", "On-%s-Empty" %(n-1), "Empty-b", "Empty-a"]
     
     for num in numbers[1:]:

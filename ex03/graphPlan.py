@@ -63,9 +63,6 @@ class GraphPlan(object):
             pgNext.expand(self.graph[level - 1]) #calls the expand function, which you are implementing in the PlanGraph class
             self.graph.append(pgNext) #appending the new level to the plan graph
             
-            #import pdb
-            #pdb.set_trace()
-            
             sizeNoGood = len(self.noGoods[level]) #remember size of nogood table
 
         plan = self.extract(self.graph, self.goal, level) #try to extract a plan since all of the goal propositions are in current graph level, and are not mutex

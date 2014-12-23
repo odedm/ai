@@ -29,6 +29,9 @@ class PlanningProblem():
         self._expanded = 0
 
     def getStartState(self):
+        """
+        Returns start state of the plan graph
+        """
         return self.initialState
 
     def isGoalState(self, state):
@@ -85,6 +88,10 @@ class PlanningProblem():
             self.actions.append(act)
 
 def expansionGenerator(state, problem):
+    """
+    Generates and yields the propositions in each level,
+    Until the graph becomes fixed.
+    """
     propLayerInit = PropositionLayer()          #create a new proposition layer
     for prop in state:
         propLayerInit.addProposition(prop)      #update the proposition layer with the propositions of the state
