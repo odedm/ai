@@ -28,7 +28,6 @@ class PlanningProblem():
         PlanGraphLevel.setProps(self.propositions)
         self._expanded = 0
 
-
     def getStartState(self):
         return self.initialState
 
@@ -54,8 +53,7 @@ class PlanningProblem():
         succs = []
         for a in self.actions:
             if not a.isNoOp() and a.allPrecondsInList(state):
-                succ = [p for p in state if p not in a.getDelete()]
-                succ += a.getAdd()[:]
+                succ = a.getAdd()[:] + [p for p in state if p not in a.getDelete()]
                 succs.append((succ, a, stepCost))
         return succs
 
@@ -86,6 +84,23 @@ class PlanningProblem():
             act = Action(name,precon,add,delete, True)
             self.actions.append(act)
 
+def expansionGenerator(state, problem):
+    propLayerInit = PropositionLayer()          #create a new proposition layer
+    for prop in state:
+        propLayerInit.addProposition(prop)      #update the proposition layer with the propositions of the state
+    pgInit = PlanGraphLevel()                   #create a new plan graph level (level is the action layer and the propositions layer)
+    pgInit.setPropositionLayer(propLayerInit)   #update the new plan graph level with the the proposition layer
+    graph = [pgInit]
+    count = 0
+    
+    while not isFixed(graph, count):
+        props = graph[count].getPropositionLayer().getPropositions()
+        yield count, props
+        pgNext = PlanGraphLevel()
+        pgNext.expandWithoutMutex(graph[count])
+        graph.append(pgNext)
+        count += 1
+    
 def maxLevel(state, problem):
     """
     The heuristic value is the number of layers required to expand all goal propositions.
@@ -97,14 +112,29 @@ def maxLevel(state, problem):
     pgInit = PlanGraphLevel()                   #create a new plan graph level (level is the action layer and the propositions layer)
     pgInit.setPropositionLayer(propLayerInit)   #update the new plan graph level with the the proposition layer
     """
-    "*** YOUR CODE HERE ***"
-
+    
+    for count, props in expansionGenerator(state, problem):
+        if problem.isGoalState(props):
+            return count
+    return float('inf')
+    
 def levelSum(state, problem):
     """
     The heuristic value is the sum of sub-goals level they first appeared.
     If the goal is not reachable from the state your heuristic should return float('inf')
     """
-    "*** YOUR CODE HERE ***"
+    g = problem.goal[:]    
+    total = 0
+     
+    for count, props in expansionGenerator(state, problem):
+        for gp in g:
+            if gp in props:
+                total += count
+                g.remove(gp)
+        if not g:
+            return total
+                         
+    return float('inf')
 
 def isFixed(Graph, level):
     """
