@@ -139,11 +139,11 @@ class PlanGraphLevel(object):
 
     def expandWithoutMutex(self, previousLayer):
         """
-        Questions 11 and 12
-        You don't have to use this function
+        Expand the graph without updating the mutex relations
         """
-        previousLayerProposition = previousLayer.getPropositionLayer()
-        "*** YOUR CODE HERE ***"
+        previousPropositionLayer = previousLayer.getPropositionLayer()
+        self.updateActionLayer(previousPropositionLayer)
+        self.updatePropositionLayer()
 
 def mutexActions(a1, a2, mutexProps):
     """
