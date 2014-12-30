@@ -32,30 +32,32 @@ class ValueIterationAgent(ValueEstimationAgent):
               mdp.getReward(state, action, nextState)
         """
         self.mdp = mdp
-        #print(self.mdp.getTransitionStatesAndProbs(self.mdp.getStates()[3], 'north'))
         self.discount = discount
         self.iterations = iterations
         self.values = util.Counter() # A Counter is a dict with default 0
 
         states = self.mdp.getStates()
 
-        for state in self.mdp.getStates():
-            # Check that None is valid here!!
-            # For when reward != 0
-            self.values[state] = self.mdp.getReward(state, None, None)
+        for i in range(0, iterations):
 
-        for i in range(1, iterations):
             tmpValues = self.values.copy()
+            self.values = util.Counter()
+
             for s in self.mdp.getStates():
-                if self.mdp.isTerminal(s):
-                    continue
                 possibleActions = self.mdp.getPossibleActions(s)
+                if not possibleActions:  # terminal state
+                    continue
+                all_res = []
                 for a in possibleActions:
+                    res = 0
                     for s2, p in self.mdp.getTransitionStatesAndProbs(s,a):
-                        self.values[s] += self.discount * p * tmpValues[s2]
-                if len(possibleActions) > 0:
-                    self.values[s] /= len(possibleActions)
-                self.values[s] += self.mdp.getReward(s, None, None)
+                        res += p * tmpValues[s2]
+                    all_res.append(res)
+                max_action_value = max(all_res)
+                self.values[s] = self.mdp.getReward(s, None, None) + self.discount * max_action_value
+
+
+
 
     def getValue(self, state):
         """
@@ -71,12 +73,11 @@ class ValueIterationAgent(ValueEstimationAgent):
           necessarily create this quantity and you may have
           to derive it on the fly.
         """
-
-        import pdb; pdb.set_trace()
-        tot = 0
+        tot = self.mdp.getReward(state, None, None)
         for s2, p in self.mdp.getTransitionStatesAndProbs(state, action):
             tot += p * self.values[s2]
-        return tot
+        return self.discount * tot
+
 
     def getPolicy(self, state):
         """
@@ -88,8 +89,7 @@ class ValueIterationAgent(ValueEstimationAgent):
         """
         ac = util.Counter()
         for a in self.mdp.getPossibleActions(state):
-            for s2, p in self.mdp.getTransitionStatesAndProbs(state, a):
-                ac[a] += p * self.values[s2]
+            ac[a] = self.getQValue(state, a)
         return ac.argMax()
 
     def getAction(self, state):
