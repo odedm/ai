@@ -54,31 +54,16 @@ class QLearningAgent(ReinforcementAgent):
           terminal state, you should return a value of 0.0.
         """
 
-        vals = []
-        for action in self.getLegalActions(state):
-            vals.append(self.getQValue(state, action))
-        random.shuffle(vals)
-
-        try:
-            return max(vals)
-        except:
-            print('return 0.0')
+        legalActions = self.getLegalActions(state)
+        if not legalActions:
             return 0.0
 
+        vals = []
+        for action in legalActions:
+            vals.append(self.getQValue(state, action))
 
-    # def getValue(self, state):
-    #     """
-    #       Returns max_action Q(state,action)
-    #       where the max is over legal actions.  Note that if
-    #       there are no legal actions, which is the case at the
-    #       terminal state, you should return a value of 0.0.
-    #     """
-    #     try:
-    #         vals = list(self.reduceCounter(state).values())
-    #         random.shuffle(vals)
-    #         return max(vals)
-    #     except:
-    #         return 0.0
+        random.shuffle(vals)
+        return max(vals)
 
     def getPolicy(self, state):
         """
@@ -87,39 +72,20 @@ class QLearningAgent(ReinforcementAgent):
           you should return None.
         """
 
-        actions = []
+        legalActions = self.getLegalActions(state)
+        if not legalActions:
+            return None
+
         m = float('-inf')
-        for action in self.getLegalActions(state):
+        for action in legalActions:
             val = self.getQValue(state, action)
             if val == m:
-                actions.append(action)
-            if val > m:
+                max_actions.append(action)
+            elif val > m:
                 m = val
-                actions = [action]
-            #actions.append((self.getQValue(state, action), action))
-        return random.choice(actions)
+                max_actions = [action]
 
-        random.shuffle(actions)
-
-
-    # def getPolicy(self, state):
-    #     """
-    #       Compute the best action to take in a state.  Note that if there
-    #       are no legal actions, which is the case at the terminal state,
-    #       you should return None.
-    #     """
-    #     c = self.reduceCounter(state)
-    #
-    #     try:
-    #         m = max(list(c.values()))
-    #     except:
-    #         return None
-    #
-    #     maxes = []
-    #     for sa, v in list(c.items()):
-    #         if v == m:
-    #             maxes.append(sa[1])
-    #     return random.choice(maxes)
+        return random.choice(max_actions)
 
     def getAction(self, state):
         """
@@ -153,15 +119,6 @@ class QLearningAgent(ReinforcementAgent):
           it will be called on your behalf
         """
         self.Q[(state, action)] += self.alpha * (reward + self.discount * self.getValue(nextState) - self.getQValue(state, action))
-
-    # def reduceCounter(self, state):
-    #     c = util.Counter()
-    #     for (tup, val) in list(self.Q.items()):
-    #         if tup[0] == state:
-    #             c[tup] = self.getQValue(*tup)
-    #     return c
-    #
-    #     #return util.Counter([(tup, val) for tup, val in self.Q.items() if tup[0] == state])
 
 
 class PacmanQAgent(QLearningAgent):
