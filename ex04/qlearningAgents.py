@@ -174,9 +174,6 @@ class ApproximateQAgent(PacmanQAgent):
         tot = 0
         feats = self.featExtractor.getFeatures(state, action)
         return self.wdict * feats
-        # for f, val in list(feats.items()):
-        #     tot += val * self.wdict[f]
-        # return tot
 
     def update(self, state, action, nextState, reward):
         """
@@ -187,10 +184,6 @@ class ApproximateQAgent(PacmanQAgent):
 
         for f in feats.keys():
             self.wdict[f] += self.alpha * correction * feats[f]
-
-
-        # for f in self.wdict.keys():
-        #     self.wdict[f] += self.alpha * correction * feats[f]
 
     def final(self, state):
         "Called at the end of each game."

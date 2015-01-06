@@ -70,11 +70,10 @@ class ValueIterationAgent(ValueEstimationAgent):
           necessarily create this quantity and you may have
           to derive it on the fly.
         """
-        tot = self.mdp.getReward(state, None, None)
+        tot = 0
         for s2, p in self.mdp.getTransitionStatesAndProbs(state, action):
             tot += p * self.values[s2]
-        return self.discount * tot
-
+        return self.mdp.getReward(state, None, None) + self.discount * tot
 
     def getPolicy(self, state):
         """
