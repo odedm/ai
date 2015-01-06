@@ -164,24 +164,33 @@ class ApproximateQAgent(PacmanQAgent):
     def __init__(self, extractor='IdentityExtractor', **args):
         self.featExtractor = util.lookup(extractor, globals())()
         PacmanQAgent.__init__(self, **args)
-
-        # You might want to initialize weights here.
-        "*** YOUR CODE HERE ***"
+        self.wdict = util.Counter() # Maps features to weights
 
     def getQValue(self, state, action):
         """
           Should return Q(state,action) = w * featureVector
           where * is the dotProduct operator
         """
-        "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        tot = 0
+        feats = self.featExtractor.getFeatures(state, action)
+        return self.wdict * feats
+        # for f, val in list(feats.items()):
+        #     tot += val * self.wdict[f]
+        # return tot
 
     def update(self, state, action, nextState, reward):
         """
            Should update your weights based on transition
         """
-        "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        correction = reward + self.discount * self.getValue(nextState) - self.getQValue(state, action)
+        feats = self.featExtractor.getFeatures(state, action)
+
+        for f in feats.keys():
+            self.wdict[f] += self.alpha * correction * feats[f]
+
+
+        # for f in self.wdict.keys():
+        #     self.wdict[f] += self.alpha * correction * feats[f]
 
     def final(self, state):
         "Called at the end of each game."
