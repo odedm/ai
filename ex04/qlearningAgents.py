@@ -46,7 +46,6 @@ class QLearningAgent(ReinforcementAgent):
         """
         return self.Q[(state, action)]
 
-
     def getValue(self, state):
         """
           Returns max_action Q(state,action)
@@ -54,13 +53,32 @@ class QLearningAgent(ReinforcementAgent):
           there are no legal actions, which is the case at the
           terminal state, you should return a value of 0.0.
         """
-        #import pdb; pdb.set_trace()
+
+        vals = []
+        for action in self.getLegalActions(state):
+            vals.append(self.getQValue(state, action))
+        random.shuffle(vals)
+
         try:
-            vals = self.reduceCounter(state).values()
-            random.shuffle(vals)
             return max(vals)
         except:
+            print('return 0.0')
             return 0.0
+
+
+    # def getValue(self, state):
+    #     """
+    #       Returns max_action Q(state,action)
+    #       where the max is over legal actions.  Note that if
+    #       there are no legal actions, which is the case at the
+    #       terminal state, you should return a value of 0.0.
+    #     """
+    #     try:
+    #         vals = list(self.reduceCounter(state).values())
+    #         random.shuffle(vals)
+    #         return max(vals)
+    #     except:
+    #         return 0.0
 
     def getPolicy(self, state):
         """
@@ -68,16 +86,40 @@ class QLearningAgent(ReinforcementAgent):
           are no legal actions, which is the case at the terminal state,
           you should return None.
         """
-        c = self.reduceCounter(state)
-        argmax = c.argMax()
-        if not argmax:
-            return None
-        maxes = []
-        for sa, v in c:
-            if c[(sa, v)] == argmax:
-                maxes.append(sa[1])
-        return random.choice(maxes)
 
+        actions = []
+        m = float('-inf')
+        for action in self.getLegalActions(state):
+            val = self.getQValue(state, action)
+            if val == m:
+                actions.append(action)
+            if val > m:
+                m = val
+                actions = [action]
+            #actions.append((self.getQValue(state, action), action))
+        return random.choice(actions)
+
+        random.shuffle(actions)
+
+
+    # def getPolicy(self, state):
+    #     """
+    #       Compute the best action to take in a state.  Note that if there
+    #       are no legal actions, which is the case at the terminal state,
+    #       you should return None.
+    #     """
+    #     c = self.reduceCounter(state)
+    #
+    #     try:
+    #         m = max(list(c.values()))
+    #     except:
+    #         return None
+    #
+    #     maxes = []
+    #     for sa, v in list(c.items()):
+    #         if v == m:
+    #             maxes.append(sa[1])
+    #     return random.choice(maxes)
 
     def getAction(self, state):
         """
@@ -91,6 +133,7 @@ class QLearningAgent(ReinforcementAgent):
           HINT: To pick randomly from a list, use random.choice(list)
         """
         # Pick Action
+
         legalActions = self.getLegalActions(state)
         if not legalActions:
             return None
@@ -109,11 +152,16 @@ class QLearningAgent(ReinforcementAgent):
           NOTE: You should never call this function,
           it will be called on your behalf
         """
-        #import pdb; pdb.set_trace()
-        self.Q[(state, action)] += self.alpha * (reward + self.discount * self.getValue(nextState) - self.Q[(state, action)])
+        self.Q[(state, action)] += self.alpha * (reward + self.discount * self.getValue(nextState) - self.getQValue(state, action))
 
-    def reduceCounter(self, state):
-        return util.Counter([(tup, val) for tup, val in self.Q.items() if tup[0] == state])
+    # def reduceCounter(self, state):
+    #     c = util.Counter()
+    #     for (tup, val) in list(self.Q.items()):
+    #         if tup[0] == state:
+    #             c[tup] = self.getQValue(*tup)
+    #     return c
+    #
+    #     #return util.Counter([(tup, val) for tup, val in self.Q.items() if tup[0] == state])
 
 
 class PacmanQAgent(QLearningAgent):
