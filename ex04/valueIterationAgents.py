@@ -56,9 +56,6 @@ class ValueIterationAgent(ValueEstimationAgent):
                 max_action_value = max(all_res)
                 self.values[s] = self.mdp.getReward(s, None, None) + self.discount * max_action_value
 
-
-
-
     def getValue(self, state):
         """
           Return the value of the state (computed in __init__).
