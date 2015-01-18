@@ -134,7 +134,7 @@ def levelSum(state, problem):
     total = 0
      
     for count, props in expansionGenerator(state, problem):
-        for gp in g:
+        for gp in g[:]:
             if gp in props:
                 total += count
                 g.remove(gp)
