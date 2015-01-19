@@ -62,7 +62,7 @@ class PlanGraphLevel(object):
         allActions = PlanGraphLevel.actions        
         for action in allActions:
             if previousPropositionLayer.allPrecondsInLayer(action) \
-                and True not in [previousPropositionLayer.isMutex(p1, p2) for p1, p2 in product(action.getPre(), action.getPre())]:
+                and True not in [previousPropositionLayer.isMutex(p1, p2) for p1, p2 in exclusiveProduct(action.getPre(), action.getPre())]:
                 self.actionLayer.addAction(action)
             
     def updateMutexActions(self, previousLayerMutexProposition):
@@ -78,8 +78,7 @@ class PlanGraphLevel(object):
         currentLayerActions = self.actionLayer.getActions()        
         actionPairs = exclusiveProduct(currentLayerActions, currentLayerActions)
         for a1, a2 in actionPairs:
-            if mutexActions(a1, a2, previousLayerMutexProposition) \
-            and not Pair(a1, a2) in self.actionLayer.getMutexActions():
+            if mutexActions(a1, a2, previousLayerMutexProposition):
                 self.actionLayer.addMutexActions(a1, a2)
         
     def updatePropositionLayer(self):
@@ -104,8 +103,7 @@ class PlanGraphLevel(object):
                 name = prop.getName()
                 if name not in props.keys():
                     props[name] = Proposition(name)
-                if a not in props[name].getProducers():
-                    props[name].addProducer(a)
+                props[name].addProducer(a)
         
         for prop in props.values():
             self.propositionLayer.addProposition(prop)
@@ -120,8 +118,7 @@ class PlanGraphLevel(object):
         currentLayerPropositions = self.propositionLayer.getPropositions()
         currentLayerMutexActions = self.actionLayer.getMutexActions()
         for p1, p2 in exclusiveProduct(currentLayerPropositions, currentLayerPropositions):
-            if mutexPropositions(p1, p2, currentLayerMutexActions) \
-            and Pair(p1, p2) not in self.propositionLayer.getMutexProps():
+            if mutexPropositions(p1, p2, currentLayerMutexActions):
                 self.propositionLayer.addMutexProp(p1, p2)
 
     def expand(self, previousLayer):
@@ -133,29 +130,20 @@ class PlanGraphLevel(object):
         Finally, given all the actions in the current layer,
         set the propositions and their mutex relations in the proposition layer.
         """
-        print("**************")
         previousPropositionLayer = previousLayer.getPropositionLayer()
         previousLayerMutexProposition = previousPropositionLayer.getMutexProps()
         self.updateActionLayer(previousPropositionLayer)
-        print("111")
         self.updateMutexActions(previousLayerMutexProposition)
-        print("222")
         self.updatePropositionLayer()
-        print("333")
         self.updateMutexProposition()
-        print("prop layer len: %s" %len(self.propositionLayer.propositions))
-        print([p.name for p in self.propositionLayer.propositions])
-        print
-        
 
     def expandWithoutMutex(self, previousLayer):
         """
         Expand the graph without updating the mutex relations
-        """        
+        """
         previousPropositionLayer = previousLayer.getPropositionLayer()
         self.updateActionLayer(previousPropositionLayer)
         self.updatePropositionLayer()
-            
 
 def mutexActions(a1, a2, mutexProps):
     """
