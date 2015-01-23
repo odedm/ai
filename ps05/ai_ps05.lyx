@@ -2599,6 +2599,144 @@ P\left(g\right)=g\sqrt{24-10g}
 5
 \end_layout
 
+\begin_layout Standard
+מכירה מהסוג המתואר אינה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+incentive compatible
+\lang hebrew
+.
+\end_layout
+
+\begin_layout Standard
+ייתכן מצב בו שחקן יוכל לשלם פחות מהשווי שהוא מעריך, כתלות בהצעות של השחקנים
+ האחרים.
+\end_layout
+
+\begin_layout Standard
+נניח, לדוגמה, שהשחקן
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula $p_{1}$
+\end_inset
+
+ מעריך את שווי הפריט ב-
+\begin_inset Formula $v_{1}=100$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+אם יציע בדיוק 
+\begin_inset Formula $b_{1}=100$
+\end_inset
+
+ וינצח, הרי שהרווח שלו יהיה 
+\begin_inset Formula $v_{1}-b_{1}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+כעת, נסמן 
+\begin_inset Formula $b^{\star}=max\left\{ b_{2},\dots,b_{n}\right\} $
+\end_inset
+
+ - ההצעה הגבוהה ביותר שאינה 
+\begin_inset Formula $b_{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+אם 
+\begin_inset Formula $b^{\star}=100$
+\end_inset
+
+, אז 
+\begin_inset Formula $p_{1}$
+\end_inset
+
+ ניצח באמצעות שובר שוויון.
+ במצב זה, 
+\begin_inset Formula $p_{1}$
+\end_inset
+
+ לא היה יכול לשפר את הרווח שלו.
+\end_layout
+
+\begin_layout Standard
+לעומת זאת, האפשרות השניה היא ש- 
+\begin_inset Formula $b^{\star}<100$
+\end_inset
+
+, ואז בהכרח 
+\begin_inset Formula $p_{1}$
+\end_inset
+
+ יכול היה לתת הצעה אחרת 
+\begin_inset Formula $b'_{1}$
+\end_inset
+
+ המקיימת 
+\begin_inset Formula $b^{\star}<b'_{1}<v_{1}$
+\end_inset
+
+, ולקבל רווח 
+\begin_inset Formula $v_{1}-b'_{1}>0$
+\end_inset
+
+.
+ 
+\end_layout
+
 \begin_layout Section
 שאלה
 \family roman
