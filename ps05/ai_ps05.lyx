@@ -2767,27 +2767,310 @@ incentive compatible
 \end_layout
 
 \begin_layout Standard
-י
+מקרה ראשון - 
+\begin_inset Formula $\left[11:8,7,6\right]$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-י
+הסידורים האפשריים )הקול המכריע מודגש(:
 \end_layout
 
 \begin_layout Standard
-י
+\begin_inset Formula 
+\[
+\left(6,\mathbf{7},8\right),\ \left(6,\mathbf{8},7\right),\ \left(7,\mathbf{6},8\right),\ \left(7,\mathbf{8},6\right),\ \left(8,\mathbf{6},7\right),\ \left(8,\mathbf{7},6\right)
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-י
+במקרה הזה, 
+\series bold
+הקול המכריע תמיד יהיה זה שמצביע שני.
+ 
+\series default
+משיקולי סימטריה, כל קול יהיה שני בבדיוק שני סידורים מתוך השישה, ולכן 
+\begin_inset Formula $I\left(6\right)=I\left(7\right)=I\left(8\right)=\frac{1}{3}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-י
+\begin_inset Formula $ $
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-י
+מקרה שני - 
+\begin_inset Formula $\left[15:8,7,6\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+הסידורים האפשריים )הקול המכריע מודגש(:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(6,7,\mathbf{8}\right),\ \left(6,8,\mathbf{7}\right),\ \left(7,6,\mathbf{8}\right),\ \left(7,\mathbf{8},6\right),\ \left(8,6,\mathbf{7}\right),\ \left(8,\mathbf{7},6\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כאן נקבל מצב שונה מהמקרה הראשון: 
+\begin_inset Formula $I\left(6\right)=0,\ I\left(7\right)=\frac{1}{2},\ I\left(8\right)=\frac{1}{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+כאן, לא משנה מה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+6
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+יצביע -
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+7
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ו-
+\numeric on
+8
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+יהיו אלה שיכריעו, במשקל שווה זה לזה.
+\end_layout
+
+\begin_layout Standard
+אין כאן סימטריה כמו במקרים האחרים, שכן מצד אחד ניתן להגיע לסכום הדרוש עם
+ שני קולות בלבד, אבל לא עם שני קולות ש-
+\numeric on
+6
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+בינהם.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+מקרה שלישי - 
+\begin_inset Formula $\left[20:8,7,6\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+הסידורים האפשריים )הקול המכריע מודגש(:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(6,7,\mathbf{8}\right),\ \left(6,8,\mathbf{7}\right),\ \left(7,6,\mathbf{8}\right),\ \left(7,8,\mathbf{6}\right),\ \left(8,6,\mathbf{7}\right),\ \left(8,7,\mathbf{6}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כאן, ניתן להכריע רק באמצעות החלטה פה אחד - אין זוג קולות שיכול להגיע ל-
+\numeric on
+20
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ללא הקול השלישי.
+\end_layout
+
+\begin_layout Standard
+כלומר, הקול המכריע הוא תמיד זה שמצביע אחרון.
+ כמו במקרה הראשון, לכולם אותו אינדקס - 
+\begin_inset Formula $I\left(6\right)=I\left(7\right)=I\left(8\right)=\frac{1}{3}$
+\end_inset
+
+.
 \end_layout
 
 \end_body
