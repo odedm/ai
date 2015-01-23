@@ -1832,6 +1832,474 @@ C & \left(0,\ 2\right) & \left(3,\ 8\right)
 3
 \end_layout
 
+\begin_layout Standard
+נקרא לשחקן השורות שחקן
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+, ולשחקן העמודות שחקן
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\numeric off
+.
+\end_layout
+
+\begin_layout Standard
+האסטרטגיה האופטימלית עבור שחקן
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+היא זו שבה הרווח המינימלי הוא הגדול ביותר.
+ במקרה שנתון פה, בו הרווחים תלוים בהטלת מטבע, נבקש למצוא את האסטרטגיה שבה
+\series bold
+ תוחלת הרווחים המינימליים
+\series default
+ היא הגדולה ביותר.
+\end_layout
+
+\begin_layout Standard
+באסטרטגיה 
+\begin_inset Formula $T$
+\end_inset
+
+, תוחלת הרווחים המינימליים היא 
+\begin_inset Formula $E\left(T\right)=0.5\cdot\left(-4\right)+0.5\cdot4=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+באסטרטגיה 
+\begin_inset Formula $B$
+\end_inset
+
+, תוחלת הרווחים המינימליים היא 
+\begin_inset Formula $E\left(B\right)=0.5\cdot\left(-3\right)+0.5\cdot\left(-2\right)=-2.5$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E\left(T\right)>E\left(B\right)$
+\end_inset
+
+, כלומר האסטרטגיה האופטימלית של שחקן
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+היא אסטרטגיה 
+\begin_inset Formula $T$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+האסטרטגיה האופטימלית עבור שחקן
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+היא זו שבה הרווח המקסימלי )של שחקן
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+( הוא הקטן ביותר.
+ כאן, נבקש למצוא את האסטרטגיה שבה 
+\series bold
+תוחלת הרווחים המקסימליים 
+\series default
+היא הקטנה ביותר.
+\end_layout
+
+\begin_layout Standard
+באסטרטגיה 
+\begin_inset Formula $L$
+\end_inset
+
+, תוחלת הרווחים המקסימליים היא 
+\begin_inset Formula $E\left(L\right)=0.5\cdot1+0.5\cdot5=3$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+באסטרטגיה 
+\begin_inset Formula $R$
+\end_inset
+
+, תוחלת הרווחים המקסימליים היא 
+\begin_inset Formula $E\left(R\right)=0.5\cdot\left(-3\right)+0.5\cdot5=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E\left(R\right)<E\left(L\right)$
+\end_inset
+
+, כלומר האסטרטגיה האופטימלית של שחקן
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+היא אסטרטגיה 
+\begin_inset Formula $R$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+תחת אסטרטגיות אלה, תוחלת הרווח של שחקן
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+היא: 
+\begin_inset Formula 
+\begin{eqnarray*}
+E\left(profit_{1}\right) & = & 0.5\cdot a\left[T,R\right]+0.5\cdot b\left[T,R\right]\\
+ & = & 0.5\cdot\left(-4\right)+0.5\cdot4\\
+ & = & 0
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ומכיוון שמדובר במשחק סכום אפס, זוהי גם תוחלת ההפסד של שחקן
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\numeric off
+.
+\end_layout
+
 \begin_layout Section
 שאלה
 \family roman
@@ -1859,6 +2327,247 @@ C & \left(0,\ 2\right) & \left(3,\ 8\right)
 \noun default
 \color inherit
 4
+\end_layout
+
+\begin_layout Standard
+נגדיר 
+\begin_inset Formula $n=10$
+\end_inset
+
+ ונסמן ב-
+\begin_inset Formula $g_{i}$
+\end_inset
+
+ את מספר העיזים ששולח כל איכר 
+\begin_inset Formula $i$
+\end_inset
+
+ למרעה )
+\begin_inset Formula $1\leq i\leq n$
+\end_inset
+
+(.
+\end_layout
+
+\begin_layout Standard
+הרווח של איכר 
+\begin_inset Formula $i$
+\end_inset
+
+ נתון ע"י: 
+\begin_inset Formula $g_{i}\cdot\sqrt{24-\sum_{j=1}^{n}g_{j}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+נניח קיום
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+NE
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+טהור 
+\begin_inset Formula $\left(g_{1}^{\star},\dots,g_{n}^{\star}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+עבור 
+\begin_inset Formula $i$
+\end_inset
+
+ כלשהו, נסמן 
+\begin_inset Formula $G_{-i}^{\star}=\sum_{j\neq i}g_{j}^{\star}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+בנקודת שיווי המשקל, כל איכר שואף למקסם את הרווח שלו, כלומר לכל 
+\begin_inset Formula $i$
+\end_inset
+
+ מתקיים:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+g_{i}^{\star}=\underset{g_{i}}{\mbox{argmax}}\left\{ g_{i}\cdot\sqrt{24-g_{i}-G_{-i}^{\star}}\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+נגזור ונשווה לאפס:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{d}{dg_{i}}\left[g_{i}\cdot\sqrt{24-g_{i}-G_{-i}^{\star}}\right] & = & \sqrt{24-g_{i}-G_{-i}^{\star}}-g_{i}\cdot\frac{1}{2\sqrt{24-g_{i}-G_{-i}^{\star}}}\\
+ & = & \frac{2\left(24-g_{i}-G_{-i}^{\star}\right)-g_{i}}{2\sqrt{24-g_{i}-G_{-i}^{\star}}}\\
+ & = & \frac{24-g_{i}-G_{-i}^{\star}-\frac{g_{i}}{2}}{\sqrt{24-g_{i}-G_{-i}^{\star}}}\\
+ & = & \frac{24-G_{-i}^{\star}-\frac{3}{2}g_{i}}{\sqrt{24-g_{i}-G_{-i}^{\star}}}=0
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+מספיק לדרוש 
+\begin_inset Formula $24-G_{-i}^{\star}-\frac{3}{2}g_{i}=0$
+\end_inset
+
+, כלומר:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+g_{i}^{\star}=16-\frac{2}{3}G_{-i}^{\star}
+\]
+
+\end_inset
+
+ משיקולי סימטריה, כל ה-
+\begin_inset Formula $g_{i}^{\star}$
+\end_inset
+
+ זהים זה לזה )מעכשיו נסמן פשוט 
+\begin_inset Formula $g^{\star}$
+\end_inset
+
+(, ולכן גם כל ה-
+\begin_inset Formula $G_{-i}^{\star}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+מכאן: 
+\begin_inset Formula 
+\begin{eqnarray*}
+g^{\star} & = & 16-\frac{2}{3}\left(n-1\right)g^{\star}\\
+ & \Rightarrow & g^{\star}=\frac{16}{1+\frac{2}{3}\left(n-1\right)}\\
+ & \Rightarrow & g^{\star}=\frac{48}{2n+1}
+\end{eqnarray*}
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+נציב 
+\begin_inset Formula $n=10$
+\end_inset
+
+ ונקבל שבנקודת שיווי המשקל כל איכר ישלח למרעה 
+\begin_inset Formula $g^{\star}=\frac{48}{21}=2.29$
+\end_inset
+
+ עיזים.
+\end_layout
+
+\begin_layout Standard
+כל האיכרים ביחד ישלחו 
+\begin_inset Formula $G^{\star}=10\cdot g^{\star}=22.9$
+\end_inset
+
+ עיזים, ולכן כל איכר ירוויח 
+\begin_inset Formula $g^{\star}\sqrt{24-G^{\star}}=2.29\sqrt{24-22.9}=2.4$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+אם האיכרים היו משתפים פעולה, היו יכולים לשלוח כל אחד מספר שווה של עיזים.
+ במצב כזה, היו מנסים למקסם את פונקציית הרווח של חקלאי יחיד עבור 
+\begin_inset Formula $g$
+\end_inset
+
+ עיזים:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P\left(g\right)=g\sqrt{24-10g}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+נקודת המקסימום של הפונקציה מתקבל ב-
+\begin_inset Formula $g=1.6$
+\end_inset
+
+, ובנקודה זו כל איכר מרוויח 
+\begin_inset Formula $P\left(1.6\right)=4.53$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -1917,6 +2626,30 @@ C & \left(0,\ 2\right) & \left(3,\ 8\right)
 \noun default
 \color inherit
 6
+\end_layout
+
+\begin_layout Standard
+י
+\end_layout
+
+\begin_layout Standard
+י
+\end_layout
+
+\begin_layout Standard
+י
+\end_layout
+
+\begin_layout Standard
+י
+\end_layout
+
+\begin_layout Standard
+י
+\end_layout
+
+\begin_layout Standard
+י
 \end_layout
 
 \end_body
